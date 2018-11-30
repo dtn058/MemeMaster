@@ -29,4 +29,22 @@ document.getElementById("signUpBtn").addEventListener("click", function(){
 
       });
 
-});
+
+ document.getElementById('viewbtn').addEventListener("click", function showImage(){
+ var storage = firebase.storage();
+ var storageRef = storage.ref();
+  storageRef.child('Distracted Boyfriend.JPG').getDownloadURL().then(function(url) {
+            console.log(url);
+
+             var test = url;
+             alert(url);
+             document.querySelector('img').src = test;
+
+         }).catch(function(error) {
+
+         });
+ });
+
+
+    
+}); //last line of file
