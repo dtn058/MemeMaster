@@ -18,18 +18,23 @@
 <style>
     body{ background-color: ivory; }
     canvas{border:1px solid red;}
-    #divTest{
-        
-    }
+    #wrapTemplates, #mygen {
+    height: 100px;
+    overflow: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    margin: 10px 0 -10px
+}
 </style>
 <body>
     Title of meme: <input type="text" id="titleText"><br>
     Top text:<input type="text" id="topText"><br>
     Bottom text:<input type="text" id="botText"><br>
     Upload a file: <input id="upload" type="file" accept="image/*">
-    <div id="divTest">
+    <div id="wrapTemplates">
         <h2> Or select from one of our templates </h1>
     </div>
+    <hr>
     <canvas id="canvas"/>
     <img id="test"/>
 </body>

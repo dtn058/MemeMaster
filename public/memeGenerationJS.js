@@ -1,6 +1,6 @@
 var storage = firebase.storage();
 var storageRef = storage.ref();
-var testRef = storageRef.child('memeTemplates/Surprised Pikachu.JPG')
+var testRef = storageRef.child('memeTemplates/SurprisedPikachu.JPG')
 
 testRef.getDownloadURL().then(function(url){
   var test = url;
