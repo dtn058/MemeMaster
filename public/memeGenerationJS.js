@@ -1,6 +1,6 @@
 var storage = firebase.storage();
 var storageRef = storage.ref();
-var testRef = storageRef.child('memeTemplates/SurprisedPikachu.jpg')
+var testRef = storageRef.child('memeTemplates/Surprised Pikachu.JPG')
 
 testRef.getDownloadURL().then(function(url){
   var test = url;
@@ -64,10 +64,10 @@ window.onload = function(){
         ctx.strokeStyle = 'black';
         ctx.lineWidth = 4;
         ctx.strokeText(topText,canvas.width/2, canvas.height/8);
-        ctx.strokeText(botText,canvas.width/2,canvas.height-(canvas.height/8));
+        ctx.strokeText(botText,canvas.width/2,canvas.height-(canvas.height/12));
         ctx.fillStyle = 'white';
         ctx.fillText(topText,canvas.width/2, canvas.height/8);
-        ctx.fillText(botText,canvas.width/2,canvas.height-(canvas.height/8));
+        ctx.fillText(botText,canvas.width/2,canvas.height-(canvas.height/12));
 
     }
 
