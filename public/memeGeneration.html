@@ -1,12 +1,16 @@
 <!doctype html>
 <html>
 <head>
+<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script src="memeGenerationJS.js"></script>
+<script defer src="/__/firebase/5.5.9/firebase-auth.js"></script>
 <style>
     body{ background-color: ivory; }
     canvas{border:1px solid red;}
 </style>
 <body>
+    <input id="upload" type="file" accept="image/*">
     Top text:<input type="text" id="topText"><br>
     Bottom text:<input type="text" id="botText"><br>
     <canvas id="canvas"/>
