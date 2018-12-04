@@ -1,6 +1,19 @@
 <!doctype html>
 <html>
 <head>
+    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+    <script>
+        var config = {
+        apiKey: "AIzaSyAdhmE_VvXS83MvrZYtRmLLVvQDRJw4k2E",
+        authDomain: "cse134bprojmememaster.firebaseapp.com",
+        databaseURL: "https://cse134bprojmememaster.firebaseio.com",
+        projectId: "cse134bprojmememaster",
+        storageBucket: "cse134bprojmememaster.appspot.com",
+        messagingSenderId: "108809510486"
+      };
+      firebase.initializeApp(config);
+  </script>
+  <script src="memeGenerationJS.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <style>
     body{ background-color: ivory; }
@@ -10,72 +23,10 @@
     Top text:<input type="text" id="topText"><br>
     Bottom text:<input type="text" id="botText"><br>
     <canvas id="canvas"/>
-    <img id="onlyImg" src="safe.jpg"/>
+    <img id="test"/>
 </body>
 <script>
-$(function(){
 
-    // get a reference to the canvas and context
-    var canvas=document.getElementById("canvas");
-    var ctx=canvas.getContext("2d");
-    $('img').on('load',function(){
-    	console.log(this.width)
-		canvas.width = this.width;
-		canvas.height = this.height;
-		draw();
-	});
-    // vars for current width and height of a canvas rectangle
-    var topText="Enter top text here!";
-    var botText="Enter bottom text here!";
-
-    // references to the input-text elements 
-    // used to let user change the rect width & height
-    var $topText=document.getElementById('topText');
-    var $botText=document.getElementById('botText')
-
-    // set the initial input-text values to the width/height vars
-    $topText.value=topText;
-    $botText.value=botText;
-    // call the draw command
-    //drawPic();
-    draw();
-
-    // listen for keyup events on width & height input-text elements
-    // Get the current values from input-text & set the width/height vars
-    // call draw to redraw the rect with the current width/height values
-    $topText.addEventListener("keyup", function(){
-        topText=this.value;
-        //drawPic();
-        draw();
-    }, false);
-
-    $botText.addEventListener("keyup", function(){
-        botText=this.value;
-        //drawPic();
-        draw();
-    }, false);
-
-
-    // draw() clears the canvas and redraws the rect
-    // based on user input
-    
-    function draw(){
-    	ctx.font = "32pt Impact"
-        ctx.clearRect(0,0,canvas.width,canvas.height);
-        ctx.drawImage($('img').get(0), 0, 0);
-        ctx.textAlign="center"; 
-        ctx.miterLimit=2;
-        ctx.strokeStyle = 'black';
-        ctx.lineWidth = 4;
-        ctx.strokeText(topText,canvas.width/2, canvas.height/8);
-        ctx.strokeText(botText,canvas.width/2,canvas.height-25);
-        ctx.fillStyle = 'white';
-        ctx.fillText(topText,canvas.width/2, canvas.height/8);
-        ctx.fillText(botText,canvas.width/2,canvas.height-25);
-
-    }
-
-}); // end $(function(){});
 </script>
 </head>
 </html>
