@@ -4,6 +4,15 @@
 <head>
     <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
     <link href="settingsCSS.css" rel="stylesheet" type="text/css">
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/5.5.9/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/5.5.9/firebase-auth.js"></script>
+    <script defer src="/__/firebase/5.5.9/firebase-database.js"></script>
+    <script defer src="/__/firebase/5.5.9/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
 </head>
 
 <body>
@@ -15,7 +24,7 @@
             <button id="open-modal" class="button buttonRed"> Change Password </button>
         </div>
         <div class="buttonWrap">
-            <button class="button buttonBlack"> Logout </button>
+            <button class="button buttonBlack" id="logoutBtn"> Logout </button>
         </div>
         <!-- modal stuff-->
         <dialog id="pass-modal">
@@ -70,7 +79,40 @@
         modal.addEventListener('close', () => {
             returnSpan.innerHTML = modal.returnValue;
         });
+
+
+
+        document.getElementById('logoutBtn').addEventListener("click", function(){
+            console.log('inside logout function....');
+  firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+      window.alert('user logged out!');
+     /* document.getElementById('userName').innerHTML = '';
+      document.getElementById('loginEmail').value == '';
+      document.getElementById('loginPassword').value == '';*/
+      window.location.href = 'https://cse134bprojmememaster.firebaseapp.com/index.html';
+
+    }).catch(function(error) {
+      // An error happened.
+      window.alert('Error: ' + error.message);
+    });
+
+    });
+
         </script>
+        <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAdhmE_VvXS83MvrZYtRmLLVvQDRJw4k2E",
+        authDomain: "cse134bprojmememaster.firebaseapp.com",
+        databaseURL: "https://cse134bprojmememaster.firebaseio.com",
+        projectId: "cse134bprojmememaster",
+        storageBucket: "cse134bprojmememaster.appspot.com",
+        messagingSenderId: "108809510486"
+      };
+      firebase.initializeApp(config);
+    </script>
 </body>
 
 </html>

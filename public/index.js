@@ -44,39 +44,58 @@ document.getElementById("loginBtn").addEventListener("click", function(){
         var errorCode = error.code;
         var errorMessage = error.message;
 
-        if(error){
-          console.log('error message:' + errorMessage);
-        }
-
-        
-
-          document.getElementById('loginEmail').value = '';
+         if (errorCode === 'auth/wrong-password') {
+        alert('Wrong password.');
+          document.getElementById('loginPassword').value = '';
+      } else if(error) {
+        alert(errorMessage);
+        document.getElementById('loginEmail').value = '';
+          document.getElementById('loginPassword').value = '';
+      }
+      else{
+        document.getElementById('loginEmail').value = '';
           document.getElementById('loginPassword').value = '';
           alert('Successful Login!');
-    
-        
+
+      }
+              
       });
-       console.log(firebase.auth().currentUser);
 
       }
 
 });
 
+/*document.getElementById('logoutBtn').addEventListener("click", function(){
+  firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+      window.alert('user logged out!');
+      document.getElementById('userName').innerHTML = '';
+      document.getElementById('loginEmail').value == '';
+      document.getElementById('loginPassword').value == '';
+    }).catch(function(error) {
+      // An error happened.
+      window.alert('Error: ' + error.message);
+    });
+});*/
 
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // User is signed in.
-    document.getElementById('userName').text = 'Hi User!';
-  } else {
-    // No user is signed in.
-    document.getElementById('userName').text = 'no user logged in';
+
+
+firebase.auth().onAuthStateChanged(function(user){
+  if(user)
+  {
+    window.alert('user logged in!');
+    document.getElementById('userName').innerHTML = ''+ user.email;
+
   }
+  else{
+     window.alert('user NOT logged in!');
+
+  }
+
 });
 
 
-
-
- document.getElementById('viewbtn').addEventListener("click", function showImage(){
+ /*document.getElementById('viewbtn').addEventListener("click", function showImage(){
  var storage = firebase.storage();
  var storageRef = storage.ref();
   storageRef.child('Distracted Boyfriend.JPG').getDownloadURL().then(function(url) {
@@ -89,7 +108,7 @@ firebase.auth().onAuthStateChanged(function(user) {
          }).catch(function(error) {
 
          });
- });
+ });*/
 
 
 
