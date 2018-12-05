@@ -1,10 +1,26 @@
 var storage = firebase.storage();
 var storageRef = storage.ref();
 var testRef = storageRef.child('memeTemplates/SurprisedPikachu.JPG')
+var pikaRef = storageRef.child('memeTemplates/SurprisedPikachu.JPG')
+var safeRef = storageRef.child('memeTemplates/safe.jpg')
+
+pikaRef.getDownloadURL().then(function(url){
+  var test = url;
+  document.getElementById("test").src = test;
+})
 
 testRef.getDownloadURL().then(function(url){
   var test = url;
-  document.getElementById("test").src = test;
+  document.getElementById("pikaMeme").addEventListener('click', () => {
+        document.getElementById('test').src = test
+    });
+})
+
+safeRef.getDownloadURL().then(function(url){
+  var test = url;
+  document.getElementById("safeMeme").addEventListener('click', () => {
+        document.getElementById('test').src = test
+    });
 })
 
 /* this is for the top/bot text and applying it to the image
