@@ -31,6 +31,7 @@
 
     <script src="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.css" />
+    <link rel="stylesheet" type="text/css" href="./index.css">
 
     <script src="./index.js"></script>
 
@@ -43,7 +44,7 @@
       #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
       #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
       #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
+      @media (max-width: 600px) { 
         body, #message { margin-top: 0; background: white; box-shadow: none; }
         body { border-top: 16px solid #ffa100; }
       }
@@ -51,11 +52,43 @@
   </head>
   <body>
 
+    <p id="userName">username</p>
+
+    <div align="center" style="margin-top: 150px; margin-bottom: 150px;">
     <form>
-      email:<input type="text" name="email" id="userEmail">
-    password:<input type="password" name="password" id="userPassword">
-    <button id="signUpBtn">Sign up!</button>
-    </form>
+          email:<input type="text" name="email" id="loginEmail"><br><br>
+          password:<input type="password" name="password" id="loginPassword"><br><br>     
+            <button id="loginBtn" class="authBtn">Login</button>      
+   </form>
+
+       <div align="center">   
+          <!-- Trigger/Open The Modal -->
+      
+      New User? <button id="signUpModalBtn" class="authBtn">Sign Up!</button>
+
+      <!-- The Modal -->
+      <div id="signUpModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <form>
+            email:<input type="text" name="email" id="userEmail"><br><br>
+          password:<input type="password" name="password" id="userPassword"><br><br>
+          <div align="left">
+            <button id="signUpBtn">Create Account!</button>
+               
+          </div>
+          
+          </form>
+          
+        </div>
+
+      </div>
+    </div>
+    </div>
+
+    
 
 
     <input type="button" value ="view Image" id="viewbtn">
