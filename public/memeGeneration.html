@@ -1,38 +1,56 @@
 <!doctype html>
 <html>
+
 <head>
     <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
     <script>
-        var config = {
+    var config = {
         apiKey: "AIzaSyAdhmE_VvXS83MvrZYtRmLLVvQDRJw4k2E",
         authDomain: "cse134bprojmememaster.firebaseapp.com",
         databaseURL: "https://cse134bprojmememaster.firebaseio.com",
         projectId: "cse134bprojmememaster",
         storageBucket: "cse134bprojmememaster.appspot.com",
         messagingSenderId: "108809510486"
-      };
-      firebase.initializeApp(config);
-  </script>
-  <script src="memeGenerationJS.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-<style>
-    body{ background-color: ivory; }
+    };
+    firebase.initializeApp(config);
+    </script>
+    <script src="memeGenerationJS.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <style>
+        body{ background-color: ivory; }
     canvas{border:1px solid red;}
-    #wrapTemplates, #mygen {
+    #wrapTemplates{
     height: 100px;
     overflow: scroll;
     overflow-y: hidden;
     white-space: nowrap;
-    margin: 10px 0 -10px
+    
+}
+#wrapTemplates .im{
+    display: inline-block;
+}
+
+.im > .templateMeme {
+    width: 50px;
+    height: 50px;
+    border-right: 3px solid #fff;
+    cursor: pointer
 }
 </style>
+
 <body>
     Title of meme: <input type="text" id="titleText"><br>
     Top text:<input type="text" id="topText"><br>
     Bottom text:<input type="text" id="botText"><br>
     Upload a file: <input id="upload" type="file" accept="image/*">
+    <h2> Or select from one of our templates </h1>
     <div id="wrapTemplates">
-        <h2> Or select from one of our templates </h1>
+        <div class ="im">
+            <img class = "templateMeme" src="pikawat.jpg">
+        </div>
+        <div class ="im">
+            <img class = "templateMeme" src ="safe.jpg">
+        </div>
     </div>
     <hr>
     <canvas id="canvas"/>
