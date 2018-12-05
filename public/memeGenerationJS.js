@@ -14,7 +14,7 @@ window.onload = function(){
     // get a reference to the canvas and context
     var canvas=document.getElementById("canvas");
     var ctx=canvas.getContext("2d");
-    $('img').on('load',function(){
+    $('#test').on('load',function(){
       console.log(this.width)
     canvas.width = this.width;
     canvas.height = this.height;
@@ -58,7 +58,7 @@ window.onload = function(){
     function draw(){
       ctx.font = "32pt Impact"
         ctx.clearRect(0,0,canvas.width,canvas.height);
-        ctx.drawImage($('img').get(0), 0, 0);
+        ctx.drawImage($('#test').get(0), 0, 0);
         ctx.textAlign="center"; 
         ctx.miterLimit=2;
         ctx.strokeStyle = 'black';
