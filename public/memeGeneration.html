@@ -43,7 +43,6 @@
     Top text:<input type="text" id="topText"><br>
     Bottom text:<input type="text" id="botText"><br>
     Upload a file: <input id="upload" type="file" accept="image/*">
-    
     <h2> Or select from one of our templates </h1>
     <div id="wrapTemplates">
         <div class ="im">
@@ -53,7 +52,7 @@
             <img id= "safeMeme" class = "templateMeme" src ="safe.jpg">
         </div>
         <div class ="im">
-            <img id= "distractedBoyMeme" class = "templateMeme" src ="Distracted Boyfriend.jpg">
+            <img id= "distractedBoyMeme" class = "templateMeme" src ="Distracted Boyfriend.JPG">
         </div>
         <div class ="im">
             <img id= "FWPMeme" class = "templateMeme" src ="1990s-First-World-Problems.jpg">
@@ -119,7 +118,7 @@
             <img id= "leoDicaprioMeme" class = "templateMeme" src ="LeoDicaprioCheers.jpg">
         </div>
         <div class ="im">
-            <img id= "mockingSpongebobMeme" class = "templateMeme" src ="Mocking Spongebob.JPG">
+            <img id= "mockingSpongebobMeme" class = "templateMeme" src ="Mocking SpongeBob.JPG">
         </div>
         <div class ="im">
             <img id= "offRampMeme" class = "templateMeme" src ="OffRamp.jpg">
@@ -143,18 +142,25 @@
             <img id= "teacherMeme" class = "templateMeme" src ="Unhelpful-High-School-Teacher.jpg">
         </div>
         <div class ="im">
-            <img id= "skeletonMeme" class = "templateMeme" src ="waiting-Skeleton.jpg">
+            <img id= "skeletonMeme" class = "templateMeme" src ="Waiting-Skeleton.jpg">
         </div>
         <div class ="im">
             <img id= "xAllYMeme" class = "templateMeme" src ="X-All-The-Y.jpg">
         </div>
 
     </div>
+    Upload via URL: <input id='urlUp', type='text'> <button id='upBut', type='button', onclick='replaceUrl()'>Upload</button>
     <hr>
+
     <canvas id="canvas"/>
     <img id="test"/>
 
     <script>
+        function replaceUrl(){
+            var URLval = document.getElementById('urlUp').value;
+            console.log(URLval);
+            document.getElementById('test').src = URLval;
+        }
         const fileInput = document.getElementById('upload');
         var selectedFile = fileInput.files[0];
         /*if(selectedFile != null){
@@ -167,69 +173,66 @@
             console.log('selectedFile is null....');
         }*/
 
+        fileInput.addEventListener('change', (e) => doSomethingWithFiles(e.target.files));
 
+         /*fileInput.addEventListener('change', sendPic, false);*/
 
-                        fileInput.addEventListener('change', (e) => doSomethingWithFiles(e.target.files));
+        var output = document.getElementById('test');
 
-                        /*fileInput.addEventListener('change', sendPic, false);*/
+        function doSomethingWithFiles(fileList) {
+            file = null;
 
-                        var output = document.getElementById('test');
+            for (let i = 0; i < fileList.length; i++) {
+                if (fileList[i].type.match(/^image\//)) {
+                    file = fileList[i];
+                     break;
+                    }
+            }
 
-                          function doSomethingWithFiles(fileList) {
-                            file = null;
-
-                            for (let i = 0; i < fileList.length; i++) {
-                              if (fileList[i].type.match(/^image\//)) {
-                                file = fileList[i];
-                                break;
-                              }
-                            }
-
-                            if (file !== null) {
-                              isFileNull=false;
-                              output.src = URL.createObjectURL(file);
-                             
-                                document.getElementById("test").src = output.src;
+            if (file !== null) {
+                isFileNull=false;
+                output.src = URL.createObjectURL(file);                      
+                document.getElementById("test").src = output.src;
                                 
                                 
                                 
 
-                              console.log("FILE URL IS: "+ output.src);
-                             /* var ref = firebase.storage().ref('/memeTemplates');
-                              var childRef = ref.child(output.src);
-                              childRef.put(file).then(function(snapshot){
-                                console.log('uploaded a file!');
-                              });*/
+            console.log("FILE URL IS: "+ output.src);
+                /* var ref = firebase.storage().ref('/memeTemplates');
+                var childRef = ref.child(output.src);
+                childRef.put(file).then(function(snapshot){
+                console.log('uploaded a file!');
+                });*/
 
-                            }
-                          }
+            }
+        }
 
-                          /*function uploadFile(){
-                          var storageRef = firebase.storage().ref('/memeTemplates');
-                          $("#cameraFile").on("change", function(event){
-                          file = event.target.files[0]; });
-                          var filename = file.name;
+        /*function uploadFile(){
+        var storageRef = firebase.storage().ref('/memeTemplates');
+        $("#cameraFile").on("change", function(event){
+        file = event.target.files[0]; });
+         var filename = file.name;
 
 
                         
-                        }*/
+        }*/
 
                         
 
-                        function alertSuccessfulFileUpload(){
-                            alert("successfully uploaded image!");
-                        }
-                        function checkIfFileIsNull(){
-                            if(file == null){
-                                isFileNull= true;
-                                alert("No image selected: please select an image to upload!");
-                            }
-                            else{
-                               // uploadFile();
+        function alertSuccessfulFileUpload(){
+            alert("successfully uploaded image!");
+        }
+        function checkIfFileIsNull(){
+            if(file == null){
+                isFileNull= true;
+                alert("No image selected: please select an image to upload!");
+            }
+            else{
+                // uploadFile();
 
-                            }
+            }
                             
-                        }  
+        }  
 
     </script>
     
