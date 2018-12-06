@@ -43,6 +43,7 @@
     Top text:<input type="text" id="topText"><br>
     Bottom text:<input type="text" id="botText"><br>
     Upload a file: <input id="upload" type="file" accept="image/*">
+    
     <h2> Or select from one of our templates </h1>
     <div id="wrapTemplates">
         <div class ="im">
@@ -51,10 +52,187 @@
         <div class ="im">
             <img id= "safeMeme" class = "templateMeme" src ="safe.jpg">
         </div>
+        <div class ="im">
+            <img id= "distractedBoyMeme" class = "templateMeme" src ="Distracted Boyfriend.jpg">
+        </div>
+        <div class ="im">
+            <img id= "FWPMeme" class = "templateMeme" src ="1990s-First-World-Problems.jpg">
+        </div>
+        <div class ="im">
+            <img id= "AliensMeme" class = "templateMeme" src ="Ancient-Aliens.jpg">
+        </div>
+        <div class ="im">
+            <img id= "BatmanRobinMeme" class = "templateMeme" src ="Batman-Slapping-Robin.jpg">
+        </div>
+        <div class ="im">
+            <img id= "BlackGirlWatMeme" class = "templateMeme" src ="Black-Girl-Wat.jpg">
+        </div>
+        <div class ="im">
+            <img id= "BlueButtonMeme" class = "templateMeme" src ="BlueButton.JPG">
+        </div>
+        <div class ="im">
+            <img id= "NotMyBusinessMeme" class = "templateMeme" src ="But-Thats-None-Of-My-Business.jpg">
+        </div>
+        <div class ="im">
+            <img id= "bubblesGirlMeme" class = "templateMeme" src ="Chubby-Bubbles-Girl.jpg">
+        </div>
+        <div class ="im">
+            <img id= "conspiracyKeanuMeme" class = "templateMeme" src ="Conspiracy-Keanu.jpg">
+        </div>
+        <div class ="im">
+            <img id= "creepyWonkaMeme" class = "templateMeme" src ="Creepy-Condescending-Wonka.jpg">
+        </div>
+        <div class ="im">
+            <img id= "dogeMeme" class = "templateMeme" src ="Doge.jpg">
+        </div>
+        <div class ="im">
+            <img id= "futuramaMeme" class = "templateMeme" src ="Futurama-Fry.jpg">
+        </div>
+        <div class ="im">
+            <img id= "grumpyCatMeme" class = "templateMeme" src ="Grumpy-Cat.jpg">
+        </div>
+        <div class ="im">
+            <img id= "pillsMeme" class = "templateMeme" src ="Hard-To-Swallow-Pills.jpg">
+        </div>
+        <div class ="im">
+            <img id= "johnnyMeme" class = "templateMeme" src ="Heres-Johnny.jpg">
+        </div>
+        <div class ="im">
+            <img id= "haroldMeme" class = "templateMeme" src ="Hide-the-Pain-Harold.jpg">
+        </div>
+        <div class ="im">
+            <img id= "asianDadMeme" class = "templateMeme" src ="High-Expectations-Asian-Father.jpg">
+        </div>
+        <div class ="im">
+            <img id= "liveDangerouslyMeme" class = "templateMeme" src ="I-Too-Like-To-Live-Dangerously.jpg">
+        </div>
+        <div class ="im">
+            <img id= "interestingManMeme" class = "templateMeme" src ="InterestingMan.jpg">
+        </div>
+        <div class ="im">
+            <img id= "pigeonMeme" class = "templateMeme" src ="Is-This-A-Pigeon.jpg">
+        </div>
+        <div class ="im">
+            <img id= "jackieChanMeme" class = "templateMeme" src ="Jackie-Chan-WTF.jpg">
+        </div>
+        <div class ="im">
+            <img id= "leoDicaprioMeme" class = "templateMeme" src ="LeoDicaprioCheers.jpg">
+        </div>
+        <div class ="im">
+            <img id= "mockingSpongebobMeme" class = "templateMeme" src ="Mocking Spongebob.JPG">
+        </div>
+        <div class ="im">
+            <img id= "offRampMeme" class = "templateMeme" src ="OffRamp.jpg">
+        </div>
+        <div class ="im">
+            <img id= "notSimplyMeme" class = "templateMeme" src ="One-Does-Not-Simply.jpg">
+        </div>
+        <div class ="im">
+            <img id= "oprahMeme" class = "templateMeme" src ="Oprah-You-Get-A.jpg">
+        </div>
+        <div class ="im">
+            <img id= "philosoraptorMeme" class = "templateMeme" src ="Philosoraptor.jpg">
+        </div>
+        <div class ="im">
+            <img id= "successKidMeme" class = "templateMeme" src ="Success-Kid.jpg">
+        </div>
+        <div class ="im">
+            <img id= "twoButtonsMeme" class = "templateMeme" src ="Two-Buttons.jpg">
+        </div>
+        <div class ="im">
+            <img id= "teacherMeme" class = "templateMeme" src ="Unhelpful-High-School-Teacher.jpg">
+        </div>
+        <div class ="im">
+            <img id= "skeletonMeme" class = "templateMeme" src ="waiting-Skeleton.jpg">
+        </div>
+        <div class ="im">
+            <img id= "xAllYMeme" class = "templateMeme" src ="X-All-The-Y.jpg">
+        </div>
+
     </div>
     <hr>
     <canvas id="canvas"/>
     <img id="test"/>
+
+    <script>
+        const fileInput = document.getElementById('upload');
+        var selectedFile = fileInput.files[0];
+        /*if(selectedFile != null){
+           console.log('selectedFileExists....');
+          var test = selectedFile.imageURL;
+          document.getElementById("test").src = test;
+
+        }
+        else{
+            console.log('selectedFile is null....');
+        }*/
+
+
+
+                        fileInput.addEventListener('change', (e) => doSomethingWithFiles(e.target.files));
+
+                        /*fileInput.addEventListener('change', sendPic, false);*/
+
+                        var output = document.getElementById('test');
+
+                          function doSomethingWithFiles(fileList) {
+                            file = null;
+
+                            for (let i = 0; i < fileList.length; i++) {
+                              if (fileList[i].type.match(/^image\//)) {
+                                file = fileList[i];
+                                break;
+                              }
+                            }
+
+                            if (file !== null) {
+                              isFileNull=false;
+                              output.src = URL.createObjectURL(file);
+                             
+                                document.getElementById("test").src = output.src;
+                                
+                                
+                                
+
+                              console.log("FILE URL IS: "+ output.src);
+                             /* var ref = firebase.storage().ref('/memeTemplates');
+                              var childRef = ref.child(output.src);
+                              childRef.put(file).then(function(snapshot){
+                                console.log('uploaded a file!');
+                              });*/
+
+                            }
+                          }
+
+                          /*function uploadFile(){
+                          var storageRef = firebase.storage().ref('/memeTemplates');
+                          $("#cameraFile").on("change", function(event){
+                          file = event.target.files[0]; });
+                          var filename = file.name;
+
+
+                        
+                        }*/
+
+                        
+
+                        function alertSuccessfulFileUpload(){
+                            alert("successfully uploaded image!");
+                        }
+                        function checkIfFileIsNull(){
+                            if(file == null){
+                                isFileNull= true;
+                                alert("No image selected: please select an image to upload!");
+                            }
+                            else{
+                               // uploadFile();
+
+                            }
+                            
+                        }  
+
+    </script>
+    
 </body>
 <script>
 
