@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
 
 
+
+
 document.getElementById("signUpBtn").addEventListener("click", function(){
 
   if(document.getElementById('userEmail').value == '' || document.getElementById('userPassword').value == ''){
@@ -8,7 +10,30 @@ document.getElementById("signUpBtn").addEventListener("click", function(){
   }
 
   else{
-        firebase.auth().createUserWithEmailAndPassword(document.getElementById('userEmail').value, document.getElementById('userPassword').value).catch(function(error) {
+        firebase.auth().createUserWithEmailAndPassword(document.getElementById('userEmail').value, document.getElementById('userPassword').value)
+        .then(function(user){
+        document.getElementById('userEmail').value = '';
+          document.getElementById('userPassword').value = '';
+          alert('Successful Sign-Up!');
+
+          /*firbase.database().ref('users/' + userID).set({
+            email: document.getElementById('userEmail').value
+          });*/
+
+          console.log('user id is......' + user.uid);
+          console.log('user is...' + user);
+
+          var ref = firebase.database().ref().child("user");
+          var data ={
+            email: document.getElementById('userEmail').value,
+            id: user.uid
+          }
+          ref.child(user.uid).set(data).then(function(ref){
+            console.log('saved data');
+
+          })
+
+      }).catch(function(error) {
         // Handle Errors here.
 
         var errorCode = error.code;
@@ -18,13 +43,10 @@ document.getElementById("signUpBtn").addEventListener("click", function(){
            console.log('error message:' + errorMessage);
         }
         
-          document.getElementById('userEmail').value = '';
-          document.getElementById('userPassword').value = '';
-          alert('Successful Sign-Up!');
-        
        
-      });
+      })
 
+      
       }
 
       });
@@ -65,7 +87,7 @@ document.getElementById("loginBtn").addEventListener("click", function(){
 
 });
 
-/*document.getElementById('logoutBtn').addEventListener("click", function(){
+document.getElementById('logoutBtn').addEventListener("click", function(){
   firebase.auth().signOut().then(function() {
       // Sign-out successful.
       window.alert('user logged out!');
@@ -76,7 +98,7 @@ document.getElementById("loginBtn").addEventListener("click", function(){
       // An error happened.
       window.alert('Error: ' + error.message);
     });
-});*/
+});
 
 
 
@@ -85,6 +107,7 @@ firebase.auth().onAuthStateChanged(function(user){
   {
     window.alert('user logged in!');
     document.getElementById('userName').innerHTML = ''+ user.email;
+    console.log('user id for logged in user is......' + user.uid);
 
   }
   else{
