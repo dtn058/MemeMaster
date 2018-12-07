@@ -15,6 +15,7 @@
     firebase.initializeApp(config);
     </script>
     <script src="memeGenerationJS.js"></script>
+    <script src="memeStorage.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
     <style>
         body{ background-color: ivory; }
@@ -152,7 +153,7 @@
     </div>
 
     Upload via URL: <input id='urlUp', type='text'> <button id='upBut', type='button', onclick='replaceUrl()'>Upload</button>
-    <button id='downloadMeme', type='button', onclick='downloadImage()'>Download the meme </button>
+    <button id='downloadMeme', type='button, onclick=downloadImage()'>Download Your Meme! </button>
     <hr>
     <canvas id="canvas"/>
     <img id="test"/>
@@ -161,11 +162,19 @@
         const fileInput = document.getElementById('upload');
         var selectedFile = fileInput.files[0];
 
-        function downloadImage(){
-            var canvasObj=document.getElementById('canvas');
-            var img   = canvas.toDataURL("image/png");
-            document.write('<img src="'+img+'"/>');
-        }
+        
+        var link = document.createElement('a');
+        link.id = 'link';
+        link.addEventListener('click', function(ev) {
+        link.href = canvas.toDataURL('image/png');
+        //console.log(link.href);
+        link.download = "newMeme";
+        }, false);
+        document.body.appendChild(link);
+
+        var but = document.getElementById('downloadMeme');
+        document.getElementById('link').appendChild(but)
+        
         /*if(selectedFile != null){
            console.log('selectedFileExists....');
           var test = selectedFile.imageURL;

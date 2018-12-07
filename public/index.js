@@ -12,14 +12,13 @@ document.getElementById("signUpBtn").addEventListener("click", function(){
   else{
         firebase.auth().createUserWithEmailAndPassword(document.getElementById('userEmail').value, document.getElementById('userPassword').value)
         .then(function(user){
-        document.getElementById('userEmail').value = '';
+          document.getElementById('userEmail').value = '';
           document.getElementById('userPassword').value = '';
           alert('Successful Sign-Up!');
 
           /*firbase.database().ref('users/' + userID).set({
             email: document.getElementById('userEmail').value
           });*/
-
           console.log('user id is......' + user.uid);
           console.log('user is...' + user);
 
@@ -32,24 +31,17 @@ document.getElementById("signUpBtn").addEventListener("click", function(){
             console.log('saved data');
 
           })
-
-      }).catch(function(error) {
+        }).catch(function(error) {
         // Handle Errors here.
-
         var errorCode = error.code;
         var errorMessage = error.message;
 
         if(error){
            console.log('error message:' + errorMessage);
-        }
-        
-       
-      })
-
-      
+          }
+        })     
       }
-
-      });
+});
 
 
 document.getElementById("loginBtn").addEventListener("click", function(){
@@ -57,34 +49,29 @@ document.getElementById("loginBtn").addEventListener("click", function(){
   if(document.getElementById('loginEmail').value == '' || document.getElementById('loginPassword').value == ''){
     alert('Please double check the email and password fields');
   }
-
   else{
-
-
-      firebase.auth().signInWithEmailAndPassword(document.getElementById('loginEmail').value, document.getElementById('loginPassword').value).catch(function(error) {
+      firebase.auth().signInWithEmailAndPassword(document.getElementById('loginEmail').value, document.getElementById('loginPassword').value)
+      .catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
 
-         if (errorCode === 'auth/wrong-password') {
-        alert('Wrong password.');
+        if (errorCode === 'auth/wrong-password') {
+          alert('Wrong password.');
           document.getElementById('loginPassword').value = '';
-      } else if(error) {
-        alert(errorMessage);
-        document.getElementById('loginEmail').value = '';
+        } 
+        else if(error) {
+          alert(errorMessage);
+          document.getElementById('loginEmail').value = '';
           document.getElementById('loginPassword').value = '';
-      }
-      else{
-        document.getElementById('loginEmail').value = '';
+        }
+        else{
+          document.getElementById('loginEmail').value = '';
           document.getElementById('loginPassword').value = '';
           alert('Successful Login!');
-
-      }
-              
+        }
       });
-
-      }
-
+    }
 });
 
 document.getElementById('logoutBtn').addEventListener("click", function(){
