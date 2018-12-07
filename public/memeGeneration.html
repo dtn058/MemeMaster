@@ -120,9 +120,6 @@
             <img id= "leoDicaprioMeme" class = "templateMeme" src ="LeoDicaprioCheers.jpg">
         </div>
         <div class ="im">
-            <img id= "mockingSpongebobMeme" class = "templateMeme" src ="Mocking Spongebob.JPG">
-        </div>
-        <div class ="im">
             <img id= "offRampMeme" class = "templateMeme" src ="OffRamp.jpg">
         </div>
         <div class ="im">
@@ -144,9 +141,6 @@
             <img id= "teacherMeme" class = "templateMeme" src ="Unhelpful-High-School-Teacher.jpg">
         </div>
         <div class ="im">
-            <img id= "skeletonMeme" class = "templateMeme" src ="waiting-Skeleton.jpg">
-        </div>
-        <div class ="im">
             <img id= "xAllYMeme" class = "templateMeme" src ="X-All-The-Y.jpg">
         </div>
 
@@ -158,6 +152,27 @@
     <canvas id="canvas"/>
     <img id="test"/>
 
+
+    <div>
+
+    <button id="shareBtnModal">Share!</button>
+
+      <!-- The Modal -->
+      <div id="shareModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          
+            <input type="text" name="downloadLink" id="downloadLinkID" value="download link"><br><br>
+            
+            <button id="gmailShareBtn">share with google!</button>
+                 
+        </div>
+
+      </div>
+  </div>
+
     <script>
         const fileInput = document.getElementById('upload');
         var selectedFile = fileInput.files[0];
@@ -168,7 +183,7 @@
         link.addEventListener('click', function(ev) {
         link.href = canvas.toDataURL('image/png');
         //console.log(link.href);
-        link.download = "newMeme";
+        link.download = document.getElementById('titleText').value;
         }, false);
         document.body.appendChild(link);
 
@@ -242,7 +257,7 @@
 
     </script>
 
-    <button id="generateBtn">Generate!</button>
+
     
 </body>
 
