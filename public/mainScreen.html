@@ -26,57 +26,32 @@
     
   </head>
   <body>
-
-    <p id="userName" align="center"></p>
-
-    <div align="center" style="margin-top: 150px; margin-bottom: 150px;">
+    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAdhmE_VvXS83MvrZYtRmLLVvQDRJw4k2E",
+        authDomain: "cse134bprojmememaster.firebaseapp.com",
+        databaseURL: "https://cse134bprojmememaster.firebaseio.com",
+        projectId: "cse134bprojmememaster",
+        storageBucket: "cse134bprojmememaster.appspot.com",
+        messagingSenderId: "108809510486"
+      };
+      firebase.initializeApp(config);
+    </script>
     
-          <input type="text" name="email" id="loginEmail" placeholder="enter email"><br><br>
-          <input type="password" name="password" id="loginPassword" placeholder="enter password"><br><br>     
-            <button id="loginBtn" class="authBtn">Login</button>      
-  
+    <script>
+      var storage = firebase.storage();
+      var storageRef = storage.ref();
+      var testRef = storageRef.child('CDS7Iu5UXfeLtxtpSa0PLgWNiBQ2/');
+      console.log(testRef);
 
-       <div align="center">   
-          <!-- Trigger/Open The Modal -->
-      
-      New User? <button id="signUpModalBtn" class="authBtn">Sign Up!</button>
+      //document.getElementById('tester').src = 
 
-      <!-- The Modal -->
-      <div id="signUpModal" class="modal">
+    </script>
 
-        <!-- Modal content -->
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          
-            <input type="text" name="email" id="userEmail" placeholder="enter email"><br><br>
-            <input type="password" name="password" id="userPassword" placeholder="enter password"><br><br>
-          <div align="left">
-            <button id="signUpBtn">Create Account!</button>
-               
-          </div>
-          
-          
-          
-        </div>
+    <img id="tester">
 
-      </div>
-    </div>
-    </div>
-
-    
-<button id="logoutBtn">Logout</button>
-
-   <!-- <input type="button" value ="view Image" id="viewbtn">
-    <img src="test" height="125px" width="200px"/> -->
-    
-
-    
-
-
-
-
-
-   
 
 
     <script>
@@ -94,7 +69,7 @@
         try {
           let app = firebase.app();
           let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-          //document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
         } catch (e) {
           console.error(e);
           document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
@@ -102,19 +77,7 @@
       });
     </script>
 
-    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyAdhmE_VvXS83MvrZYtRmLLVvQDRJw4k2E",
-        authDomain: "cse134bprojmememaster.firebaseapp.com",
-        databaseURL: "https://cse134bprojmememaster.firebaseio.com",
-        projectId: "cse134bprojmememaster",
-        storageBucket: "cse134bprojmememaster.appspot.com",
-        messagingSenderId: "108809510486"
-      };
-      firebase.initializeApp(config);
-    </script>
-    <script src="./index.js"></script>
+    
+   
   </body>
 </html>
