@@ -2,6 +2,18 @@
 <html>
 
 <head>
+    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+    <script>
+        var config = {
+    apiKey: "AIzaSyAdhmE_VvXS83MvrZYtRmLLVvQDRJw4k2E",
+    authDomain: "cse134bprojmememaster.firebaseapp.com",
+    databaseURL: "https://cse134bprojmememaster.firebaseio.com",
+    projectId: "cse134bprojmememaster",
+    storageBucket: "cse134bprojmememaster.appspot.com",
+    messagingSenderId: "108809510486"
+};
+firebase.initializeApp(config)
+</script>
     <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
     <link href="settingsCSS.css" rel="stylesheet" type="text/css">
     <!-- update the version number as needed -->
@@ -12,13 +24,14 @@
     <script defer src="/__/firebase/5.5.9/firebase-storage.js"></script>
     <!-- initialize the SDK after all desired features are loaded -->
     <script defer src="/__/firebase/init.js"></script>
+    <script src="settingsJS.js"></script>
 
 </head>
 
 <body>
     <h1 class ="text"> <b> Configuration Settings </b> </h1>
     <div class="avatar">
-        <img class="avatarpic" src="pikawat.jpg" alt="Avatar">
+        <img id="avatarpic" alt="Avatar">
     </div>
         <div class="buttonWrap">
             <button id="open-modal" class="button buttonRed"> Change Password </button>
@@ -26,7 +39,8 @@
         <div class="buttonWrap">
             <button class="button buttonBlack" id="logoutBtn"> Logout </button>
         </div>
-        <!-- modal stuff-->
+
+        <!-- popup modal stuff-->
         <dialog id="pass-modal">
             <h3 class="modal-header">Change Password</h3>
             <div class="modal-body">
@@ -39,96 +53,7 @@
             <button id="close" class="close" type="button">&times;</button>
         </dialog>
         <p><code>returnValue</code>: <span id="return-value"></span></p>
-        <script>
-        const modal = document.getElementById('pass-modal');
-        const open = document.getElementById('open-modal');
-        const close = document.getElementById('close');
-        const cancelledIt = document.getElementById('cancelled-it');
-        const confirmedIt = document.getElementById('confirmed-it');
-        const returnSpan = document.getElementById('return-value');
-
-        open.addEventListener('click', () => {
-            modal.showModal();
-        });
-
-        cancelledIt.addEventListener('click', () => {
-            modal.close('cancelled');
-        });
-
-        // returns the user's new pass when click "confirm"
-        confirmedIt.addEventListener('click', () => {
-            modal.close(document.getElementById('newPass').value);
-        });
-
-        close.addEventListener('click', () => {
-            modal.close('cancelled');
-        })
-
-        modal.addEventListener('cancel', () => {
-            modal.close('cancelled');
-        });
-
-        // close when clicking on backdrop
-        modal.addEventListener('click', (event) => {
-            if (event.target === modal) {
-                modal.close('cancelled');
-            }
-        });
-
-        // display returnValue
-        modal.addEventListener('close', () => {
-            returnSpan.innerHTML = modal.returnValue;
-        });
-
-
-        //sign out user
-        document.getElementById('logoutBtn').addEventListener("click", function(){
-            console.log('inside logout function....');
-          firebase.auth().signOut().then(function() {
-              // Sign-out successful.
-              window.alert('user logged out!');
-             /* document.getElementById('userName').innerHTML = '';
-              document.getElementById('loginEmail').value == '';
-              document.getElementById('loginPassword').value == '';*/
-              window.location.href = 'https://cse134bprojmememaster.firebaseapp.com/index.html';
-
-            }).catch(function(error) {
-              // An error happened.
-              window.alert('Error: ' + error.message);
-            });
-
-    });
-
         
-        //change password
-        document.getElementById('confirmed-it').addEventListener('click', function(){
-            var user = firebase.auth().currentUser;
-            var newPassword = document.getElementById('newPass').value;
-
-            user.updatePassword(newPassword).then(function() {
-              // Update successful.
-              alert('successfully updated password!')
-            }).catch(function(error) {
-              // An error happened.
-              alert('Error: ' + error.message);
-            });
-
-        }) 
-
-        </script>
-        <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyAdhmE_VvXS83MvrZYtRmLLVvQDRJw4k2E",
-        authDomain: "cse134bprojmememaster.firebaseapp.com",
-        databaseURL: "https://cse134bprojmememaster.firebaseio.com",
-        projectId: "cse134bprojmememaster",
-        storageBucket: "cse134bprojmememaster.appspot.com",
-        messagingSenderId: "108809510486"
-      };
-      firebase.initializeApp(config);
-    </script>
 </body>
 
 </html>

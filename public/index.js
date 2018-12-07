@@ -16,9 +16,6 @@ document.getElementById("signUpBtn").addEventListener("click", function(){
           document.getElementById('userPassword').value = '';
           alert('Successful Sign-Up!');
 
-          /*firbase.database().ref('users/' + userID).set({
-            email: document.getElementById('userEmail').value
-          });*/
           console.log('user id is......' + user.uid);
           console.log('user is...' + user);
 

@@ -10,8 +10,8 @@ body {
     background-color: ivory;
 }
 
-.avatarpic {
-    border-radius: 50%;
+#avatarpic {
+    border-radius: 30%;
     max-width: 50%;
     max-height: 50%;
     align-self: center;

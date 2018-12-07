@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Welcome to Firebase Hosting</title>
 
-    
-
-
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/5.5.9/firebase-app.js"></script>
     <!-- include only the Firebase features as you need -->
@@ -19,14 +16,7 @@
 
     <!--<script src="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.4.1/firebaseui.css" />-->
-    <link rel="stylesheet" type="text/css" href="./index.css">
-
-    
-
-    
-  </head>
-  <body>
-    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+    <link rel="stylesheet" type="text/css" href="./mainScreenCSS.css">
     <script>
       // Initialize Firebase
       var config = {
@@ -40,19 +30,29 @@
       firebase.initializeApp(config);
     </script>
     
+  </head>
+  <body>
+    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
     <script>
       var storage = firebase.storage();
       var storageRef = storage.ref();
       var testRef = storageRef.child('CDS7Iu5UXfeLtxtpSa0PLgWNiBQ2/');
       console.log(testRef);
-
       //document.getElementById('tester').src = 
-
     </script>
 
-    <img id="tester">
-
-
+    <!-- CODE STARTS HERE-->
+    <h1> <b>MemeMaster</b> </h1>
+    <button id="settingsBtn" , onclick="location.href = 'https://cse134bprojmememaster.firebaseapp.com/settings.html'"> Settings Page </button>
+    
+    <button id="createMeme" , onclick="location.href = 'https://cse134bprojmememaster.firebaseapp.com/memeGeneration.html'"> Create a New Meme! </button>
+    <div id='memeWrapper'>
+      <hr>
+      <div id='memeLibrary'>
+      <button id ='uploadMeme'> Upload Your Own Meme! </button>
+      </div>
+      <hr>
+  </div>
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {
@@ -76,7 +76,6 @@
         }
       });
     </script>
-
     
    
   </body>

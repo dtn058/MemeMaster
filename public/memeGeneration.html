@@ -41,10 +41,9 @@
 
 <body>
     Title of meme: <input type="text" id="titleText"><br>
-    Top text:<input type="text" id="topText"><br>
-    Bottom text:<input type="text" id="botText"><br>
+    Top text:<textarea id="topText"></textarea> <input id="topTextSizeInput" type='range' min ="0.05" max="0.25" value="0.05" step="0.01"><br>
+    Bottom text:<textarea id="botText"></textarea> <input id="botTextSizeInput" type='range' min ="0.05" max="0.25" value="0.05" step="0.01"'><br> 
     Upload a file: <input id="upload" type="file" accept="image/*">
-    
     <h2> Or select from one of our templates </h1>
     <div id="wrapTemplates">
         <div class ="im">
@@ -148,11 +147,6 @@
 
     Upload via URL: <input id='urlUp', type='text'> <button id='upBut', type='button', onclick='replaceUrl()'>Upload</button>
     <button id='downloadMeme', type='button, onclick=downloadImage()'>Download Your Meme! </button>
-    <hr>
-    <canvas id="canvas"/>
-    <img id="test"/>
-
-
     <div>
 
     <button id="shareBtnModal">Share!</button>
@@ -166,12 +160,16 @@
           
             <input type="text" name="downloadLink" id="downloadLinkID" value="download link"><br><br>
             
-            <button id="gmailShareBtn">share with google!</button>
-                 
+            <button id="gmailShareBtn">share with google!</button>  
         </div>
 
       </div>
-  </div>
+    </div>
+    <hr>
+
+    <canvas id="canvas"/>
+    <img id="test"/>
+
 
     <script>
         const fileInput = document.getElementById('upload');

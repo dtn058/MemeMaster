@@ -1,0 +1,16 @@
+#settingsBtn {
+	margin: 40px;
+	position:absolute;
+	top:0;
+	right:0;
+}
+
+#memeLibrary{
+	background:turquoise;
+}
+
+#memeWrapper{
+	position:absolute;
+	top:50%;
+	bottom:50%;
+}
