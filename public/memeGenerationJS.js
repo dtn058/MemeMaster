@@ -21,12 +21,12 @@ window.onload = function(){
 
     // references to the input-text elements 
     // used to let user change the rect width & height
-    var $topText=document.getElementById('topText');
-    var $botText=document.getElementById('botText');
+    var initTop=document.getElementById('topText');
+    var initBot=document.getElementById('botText');
 
     // set the initial input-text values to the width/height vars
-    $topText.value=topText;
-    $botText.value=botText;
+    initTop.value=topText;
+    initBot.value=botText;
     // call the draw command
     //drawPic();
     draw();
