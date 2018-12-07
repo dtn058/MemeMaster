@@ -81,23 +81,39 @@
         });
 
 
-
+        //sign out user
         document.getElementById('logoutBtn').addEventListener("click", function(){
             console.log('inside logout function....');
-  firebase.auth().signOut().then(function() {
-      // Sign-out successful.
-      window.alert('user logged out!');
-     /* document.getElementById('userName').innerHTML = '';
-      document.getElementById('loginEmail').value == '';
-      document.getElementById('loginPassword').value == '';*/
-      window.location.href = 'https://cse134bprojmememaster.firebaseapp.com/index.html';
+          firebase.auth().signOut().then(function() {
+              // Sign-out successful.
+              window.alert('user logged out!');
+             /* document.getElementById('userName').innerHTML = '';
+              document.getElementById('loginEmail').value == '';
+              document.getElementById('loginPassword').value == '';*/
+              window.location.href = 'https://cse134bprojmememaster.firebaseapp.com/index.html';
 
-    }).catch(function(error) {
-      // An error happened.
-      window.alert('Error: ' + error.message);
+            }).catch(function(error) {
+              // An error happened.
+              window.alert('Error: ' + error.message);
+            });
+
     });
 
-    });
+        
+        //change password
+        document.getElementById('confirmed-it').addEventListener('click', function(){
+            var user = firebase.auth().currentUser;
+            var newPassword = document.getElementById('newPass').value;
+
+            user.updatePassword(newPassword).then(function() {
+              // Update successful.
+              alert('successfully updated password!')
+            }).catch(function(error) {
+              // An error happened.
+              alert('Error: ' + error.message);
+            });
+
+        }) 
 
         </script>
         <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
