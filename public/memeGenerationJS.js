@@ -351,8 +351,6 @@ window.onload = function(){
 
     }
 
-
-
 }; // end $(function(){});
 
 /*
