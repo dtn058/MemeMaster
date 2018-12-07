@@ -23,7 +23,7 @@ var interestingManRef = storageRef.child('memeTemplates/InterestingMan.jpg');
 var pigeonRef = storageRef.child('memeTemplates/Is-This-A-Pigeon.jpg');
 var jackieChanRef = storageRef.child('memeTemplates/Jackie-Chan-WTF.jpg');
 var leoRef = storageRef.child('memeTemplates/LeoDicaprioCheers.jpg');
-var spongebobRef = storageRef.child('memeTemplates/Mocking Spongebob.JPG');
+var spongebobRef = storageRef.child('memeTemplates/Mocking SpongeBob.JPG');
 var offRampRef = storageRef.child('memeTemplates/OffRamp.jpg');
 var simplyRef = storageRef.child('memeTemplates/One-Does-Not-Simply.jpg');
 var oprahRef = storageRef.child('memeTemplates/Oprah-You-Get-A.jpg');
@@ -31,7 +31,7 @@ var philosoraptorRef = storageRef.child('memeTemplates/Philosoraptor.jpg');
 var successKidRef = storageRef.child('memeTemplates/Success-Kid.jpg');
 var twoBtnsRef = storageRef.child('memeTemplates/Two-Buttons.jpg');
 var teacherRef = storageRef.child('memeTemplates/Unhelpful-High-School-Teacher.jpg');
-var skeletonRef = storageRef.child('memeTemplates/waiting-Skeleton.jpg');
+var skeletonRef = storageRef.child('memeTemplates/Waiting-Skeleton.jpg');
 var xyRef = storageRef.child('memeTemplates/X-All-The-Y.jpg');
 var safeRef = storageRef.child('memeTemplates/safe.jpg');
 var distractedBoyfriendRef = storageRef.child('memeTemplates/Distracted Boyfriend.JPG');
@@ -302,12 +302,12 @@ window.onload = function(){
     // get a reference to the canvas and context
     var canvas=document.getElementById("canvas");
     var ctx=canvas.getContext("2d");
-    $('#test').on('load',function(){
+    document.getElementById('test').onload = function(){
       console.log(this.width)
     canvas.width = this.width;
     canvas.height = this.height;
     draw();
-  });
+  };
     // vars for current width and height of a canvas rectangle
     var topText="Enter top text here!";
     var botText="Enter bottom text here!";
@@ -321,7 +321,6 @@ window.onload = function(){
     $topText.value=topText;
     $botText.value=botText;
     // call the draw command
-    //drawPic();
     draw();
 
     // listen for keyup events on width & height input-text elements
@@ -329,13 +328,12 @@ window.onload = function(){
     // call draw to redraw the rect with the current width/height values
     $topText.addEventListener("keyup", function(){
         topText=this.value;
-        //drawPic();
         draw();
     }, false);
 
     $botText.addEventListener("keyup", function(){
         botText=this.value;
-        //drawPic();
+        
         draw();
     }, false);
 
@@ -346,7 +344,7 @@ window.onload = function(){
     function draw(){
       ctx.font = "32pt Impact"
         ctx.clearRect(0,0,canvas.width,canvas.height);
-        ctx.drawImage($('#test').get(0), 0, 0);
+        ctx.drawImage(document.getElementById('test'), 0, 0);
         ctx.textAlign="center"; 
         ctx.miterLimit=2;
         ctx.strokeStyle = 'black';
@@ -359,7 +357,10 @@ window.onload = function(){
 
     }
 
+
+
 }; // end $(function(){});
+
 /*
 console.log(testRef);
 window.onload = function(){
