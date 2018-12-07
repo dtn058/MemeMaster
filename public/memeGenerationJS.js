@@ -293,11 +293,6 @@ document.getElementById('generateBtn').addEventListener('click', function(){
 })
 
 
-
-
-
-
-
 /* this is for the top/bot text and applying it to the image
 */
 window.onload = function(){
@@ -305,12 +300,11 @@ window.onload = function(){
     // get a reference to the canvas and context
     var canvas=document.getElementById("canvas");
     var ctx=canvas.getContext("2d");
-    $('#test').on('load',function(){
-      console.log(this.width)
+    document.getElementById('test').onload = function(){
     canvas.width = this.width;
     canvas.height = this.height;
     draw();
-  });
+  };
     // vars for current width and height of a canvas rectangle
     var topText="Enter top text here!";
     var botText="Enter bottom text here!";

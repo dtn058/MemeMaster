@@ -150,6 +150,9 @@
         </div>
 
     </div>
+
+    Upload via URL: <input id='urlUp', type='text'> <button id='upBut', type='button', onclick='replaceUrl()'>Upload</button>
+    <button id='downloadMeme', type='button', onclick='downloadImage()'>Download the meme </button>
     <hr>
     <canvas id="canvas"/>
     <img id="test"/>
@@ -157,6 +160,12 @@
     <script>
         const fileInput = document.getElementById('upload');
         var selectedFile = fileInput.files[0];
+
+        function downloadImage(){
+            var canvasObj=document.getElementById('canvas');
+            var img   = canvas.toDataURL("image/png");
+            document.write('<img src="'+img+'"/>');
+        }
         /*if(selectedFile != null){
            console.log('selectedFileExists....');
           var test = selectedFile.imageURL;
@@ -204,15 +213,6 @@
                             }
                           }
 
-                          /*function uploadFile(){
-                          var storageRef = firebase.storage().ref('/memeTemplates');
-                          $("#cameraFile").on("change", function(event){
-                          file = event.target.files[0]; });
-                          var filename = file.name;
-
-
-                        
-                        }*/
 
                         
 
