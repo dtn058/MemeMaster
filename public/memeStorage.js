@@ -23,7 +23,7 @@ var interestingManRef = storageRef.child('memeTemplates/InterestingMan.jpg');
 var pigeonRef = storageRef.child('memeTemplates/Is-This-A-Pigeon.jpg');
 var jackieChanRef = storageRef.child('memeTemplates/Jackie-Chan-WTF.jpg');
 var leoRef = storageRef.child('memeTemplates/LeoDicaprioCheers.jpg');
-var spongebobRef = storageRef.child('memeTemplates/Mocking Spongebob.JPG');
+//var spongebobRef = storageRef.child('memeTemplates/Mocking Spongebob.JPG');
 var offRampRef = storageRef.child('memeTemplates/OffRamp.jpg');
 var simplyRef = storageRef.child('memeTemplates/One-Does-Not-Simply.jpg');
 var oprahRef = storageRef.child('memeTemplates/Oprah-You-Get-A.jpg');
@@ -31,7 +31,7 @@ var philosoraptorRef = storageRef.child('memeTemplates/Philosoraptor.jpg');
 var successKidRef = storageRef.child('memeTemplates/Success-Kid.jpg');
 var twoBtnsRef = storageRef.child('memeTemplates/Two-Buttons.jpg');
 var teacherRef = storageRef.child('memeTemplates/Unhelpful-High-School-Teacher.jpg');
-var skeletonRef = storageRef.child('memeTemplates/waiting-Skeleton.jpg');
+//var skeletonRef = storageRef.child('memeTemplates/waiting-Skeleton.jpg');
 var xyRef = storageRef.child('memeTemplates/X-All-The-Y.jpg');
 var safeRef = storageRef.child('memeTemplates/safe.jpg');
 var distractedBoyfriendRef = storageRef.child('memeTemplates/Distracted Boyfriend.JPG');
@@ -518,7 +518,7 @@ leoRef.getDownloadURL().then(function(url){
     });
 })
 
-spongebobRef.getDownloadURL().then(function(url){
+/*spongebobRef.getDownloadURL().then(function(url){
   fetch(url)
     .then(function(response) {
         if (response.ok) {
@@ -535,7 +535,7 @@ spongebobRef.getDownloadURL().then(function(url){
     .catch(function(error) {
         // error handling
     });
-})
+})*/
 
 offRampRef.getDownloadURL().then(function(url){
   fetch(url)
@@ -670,7 +670,7 @@ teacherRef.getDownloadURL().then(function(url){
     });
 })
 
-skeletonRef.getDownloadURL().then(function(url){
+/*skeletonRef.getDownloadURL().then(function(url){
   fetch(url)
     .then(function(response) {
         if (response.ok) {
@@ -687,7 +687,7 @@ skeletonRef.getDownloadURL().then(function(url){
     .catch(function(error) {
         // error handling
     });
-})
+})*/
 
 xyRef.getDownloadURL().then(function(url){
   fetch(url)
