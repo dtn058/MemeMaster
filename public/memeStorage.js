@@ -54,8 +54,8 @@ pikaRef.getDownloadURL().then(function(url) {
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+    .then(function(memeImage) {
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
     })
     .catch(function(error) {
         // error handling
@@ -71,9 +71,10 @@ testRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
-      document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+    .then(function(memeImage) {
+      document.getElementById('pikaMeme').src = URL.createObjectURL(memeImage);
+      document.getElementById("pikaMeme").addEventListener('click', () => {
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -90,9 +91,10 @@ safeRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
-      document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+    .then(function(memeImage) {
+        document.getElementById('safeMeme').src = URL.createObjectURL(memeImage);
+        document.getElementById("safeMeme").addEventListener('click', () => {
+            document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -109,9 +111,10 @@ distractedBoyfriendRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
-      document.getElementById("distractedBoyMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+    .then(function(memeImage) {
+        document.getElementById('distractedBoyMeme').src = URL.createObjectURL(memeImage);
+        document.getElementById("distractedBoyMeme").addEventListener('click', () => {
+            document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -128,9 +131,9 @@ fwpRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("FWPMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -147,9 +150,9 @@ aliensRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("AliensMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -166,9 +169,9 @@ batmanRobinRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("BatmanRobinMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -185,9 +188,9 @@ blackGirlRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("BlackGirlWatMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -204,9 +207,9 @@ blueBtnRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("BlueButtonMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -223,9 +226,9 @@ notMyBusinessRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("NotMyBusinessMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -242,9 +245,9 @@ bubbleGirlRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("bubblesGirlMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -261,9 +264,9 @@ conspiracyRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("conspiracyKeanuMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -280,9 +283,9 @@ wonkaRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("creepyWonkaMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -299,9 +302,9 @@ dogeRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -318,9 +321,9 @@ futuramaRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -337,9 +340,9 @@ catRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -356,9 +359,9 @@ pillsRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -375,9 +378,9 @@ johnnyRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -394,9 +397,9 @@ haroldRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -413,9 +416,9 @@ asianDadRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -432,9 +435,9 @@ liveDangerouslyRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -451,9 +454,9 @@ interestingManRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -470,9 +473,9 @@ pigeonRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -489,9 +492,9 @@ jackieChanRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -508,9 +511,9 @@ leoRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -527,9 +530,9 @@ leoRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -546,9 +549,9 @@ offRampRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -565,9 +568,9 @@ simplyRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -584,9 +587,9 @@ oprahRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -603,9 +606,9 @@ philosoraptorRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -622,9 +625,9 @@ successKidRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -641,9 +644,9 @@ twoBtnsRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -660,9 +663,9 @@ teacherRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -679,9 +682,9 @@ teacherRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
@@ -698,9 +701,9 @@ xyRef.getDownloadURL().then(function(url){
 
         // error, handle it however you want to
     })
-    .then(function(blob) {
+    .then(function(memeImage) {
       document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(blob);
+        document.getElementById("test").src = URL.createObjectURL(memeImage);
       });   
     })
     .catch(function(error) {
