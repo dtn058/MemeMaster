@@ -290,11 +290,6 @@ xyRef.getDownloadURL().then(function(url){
 
 
 
-
-
-
-
-
 /* this is for the top/bot text and applying it to the image
 */
 window.onload = function(){
@@ -303,7 +298,6 @@ window.onload = function(){
     var canvas=document.getElementById("canvas");
     var ctx=canvas.getContext("2d");
     document.getElementById('test').onload = function(){
-      console.log(this.width)
     canvas.width = this.width;
     canvas.height = this.height;
     draw();
