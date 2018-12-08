@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-
+var uidOfUser;
 
 
 document.getElementById("signUpBtn").addEventListener("click", function(){
@@ -12,22 +12,24 @@ document.getElementById("signUpBtn").addEventListener("click", function(){
   else{
         firebase.auth().createUserWithEmailAndPassword(document.getElementById('userEmail').value, document.getElementById('userPassword').value)
         .then(function(user){
+          
+
+          console.log('current user uid is...' + firebase.auth().currentUser.uid);
+          //var currEmail = firebase.auth().currentUser.getEmail();
+
+          firebase.database().ref().child("users/" + firebase.auth().currentUser.uid).set({
+            email: ''   
+
+          })
+
           document.getElementById('userEmail').value = '';
           document.getElementById('userPassword').value = '';
           alert('Successful Sign-Up!');
-
-          console.log('user id is......' + user.uid);
-          console.log('user is...' + user);
-
-          var ref = firebase.database().ref().child("user");
-          var data ={
-            email: document.getElementById('userEmail').value,
-            id: user.uid
-          }
-          ref.child(user.uid).set(data).then(function(ref){
+          
+         /* ref.child(firebase.auth().currentUser.uid).set(data).then(function(ref){
             console.log('saved data');
 
-          })
+          })*/
         }).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
@@ -92,6 +94,7 @@ firebase.auth().onAuthStateChanged(function(user){
     window.alert('user logged in!');
     document.getElementById('userName').innerHTML = ''+ user.email;
     console.log('user id for logged in user is......' + user.uid);
+    uidOfUser = user.uid;
 
   }
   else{

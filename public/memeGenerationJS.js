@@ -173,6 +173,36 @@ window.onload = function(){
         }
     }
 
+
+
+    document.getElementById('saveMeme').addEventListener('click', function(){
+        var user = firebase.auth().currentUser;
+        var imgSrc = canvas.toDataURL('image/png');
+        var imgTemplate = document.getElementById('test').getAttribute('base64data');
+
+        var topTextData = document.getElementById('topText').value;
+        var botTextData = document.getElementById('botText').value;
+
+        console.log('imgTemplate src is... ' + imgTemplate);
+        var postData = {
+            author: user.email,
+            uid: user.uid,
+            meme: imgSrc,
+            memeTemplate: imgTemplate,
+            topTextDataVal: topTextData,
+            botTestDataVal: botTextData,
+            title: document.getElementById('titleText').value
+        };
+
+        var newPostKey = firebase.database().ref().child('users').push().key;
+        var updates = {};
+        updates['users/' + user.uid + '/' + newPostKey] = postData;
+
+        return firebase.database().ref().update(updates);
+
+
+    })
+
 }; // end $(function(){});
 /*
 console.log(testRef);

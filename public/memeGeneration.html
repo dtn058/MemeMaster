@@ -40,6 +40,9 @@
 </style>
 
 <body>
+
+    <img src="blob:http://localhost:5000/ed201892-3946-42ad-a1bf-2a9ab62ea403">
+    
     Title of meme: <input type="text" id="titleText"><br>
     Top text:<textarea id="topText"></textarea> <input id="topTextSizeInput" type='range' min ="0.05" max="0.25" value="0.05" step="0.01"><br>
     Bottom text:<textarea id="botText"></textarea> <input id="botTextSizeInput" type='range' min ="0.05" max="0.25" value="0.05" step="0.01"'><br> 
@@ -149,6 +152,8 @@
 <button id="submit">Draw text on canvas</button><br>
     Upload via URL: <input id='urlUp', type='text'> <button id='upBut', type='button', onclick='replaceUrl()'>Upload</button>
     <button id='downloadMeme', type='button, onclick=downloadImage()'>Download Your Meme! </button>
+
+    <button id="saveMeme">Save Meme!</button>
     <div>
 
     <button id="shareBtnModal">Share!</button>
@@ -173,9 +178,10 @@
     <img id="test"/>
 
 
+
     <script>
         // canvas related variables
-var canvas = document.getElementById("canvas");
+/*var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
 // variables used to get mouse position on the canvas
@@ -302,7 +308,7 @@ $("#submit").click(function () {
     // redraw everything
     draw();
 
-});
+});*/
         const fileInput = document.getElementById('upload');
         var selectedFile = fileInput.files[0];
 

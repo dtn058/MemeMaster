@@ -56,6 +56,15 @@ pikaRef.getDownloadURL().then(function(url) {
     })
     .then(function(memeImage) {
         document.getElementById("test").src = URL.createObjectURL(memeImage);
+        var reader = new FileReader();
+        reader.readAsDataURL(memeImage);
+        reader.onloadend = function(){
+            base64data = reader.result;
+            console.log(base64data);
+            document.getElementById('test').setAttribute('base64data', base64data);
+        }
+        
+
     })
     .catch(function(error) {
         // error handling
