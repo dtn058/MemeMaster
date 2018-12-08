@@ -16,7 +16,6 @@
     </script>
     <script src="memeGenerationJS.js"></script>
     <script src="memeStorage.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
     <style>
         body{ background-color: ivory; }
     canvas{border:1px solid red;}
@@ -41,7 +40,7 @@
 
 <body>
 
-    <img src="blob:http://localhost:5000/ed201892-3946-42ad-a1bf-2a9ab62ea403">
+    <!-- dont need? <img src="blob:http://localhost:5000/ed201892-3946-42ad-a1bf-2a9ab62ea403"> -->
 
     Title of meme: <input type="text" id="titleText"><br>
     Top text:<textarea id="topText"></textarea> <input id="topTextSizeInput" type='range' min ="0.05" max="0.25" value="0.05" step="0.01"><br>
@@ -50,347 +49,206 @@
     <h2> Or select from one of our templates </h1>
     <div id="wrapTemplates">
         <div class ="im">
-            <img id='pikaMeme' class = "templateMeme" src="pikawat.jpg">
+            <img id='pikaMeme' class = "templateMeme" >
         </div>
         <div class ="im">
-            <img id= "safeMeme" class = "templateMeme" src ="safe.jpg">
+            <img id= "safeMeme" class = "templateMeme">
         </div>
         <div class ="im">
-            <img id= "distractedBoyMeme" class = "templateMeme" src ="Distracted Boyfriend.jpg">
+            <img id= "distractedBoyMeme" class = "templateMeme" >
         </div>
         <div class ="im">
-            <img id= "FWPMeme" class = "templateMeme" src ="1990s-First-World-Problems.jpg">
+            <img id= "FWPMeme" class = "templateMeme">
         </div>
         <div class ="im">
-            <img id= "AliensMeme" class = "templateMeme" src ="Ancient-Aliens.jpg">
+            <img id= "AliensMeme" class = "templateMeme" >
         </div>
         <div class ="im">
-            <img id= "BatmanRobinMeme" class = "templateMeme" src ="Batman-Slapping-Robin.jpg">
+            <img id= "BatmanRobinMeme" class = "templateMeme" >
         </div>
         <div class ="im">
-            <img id= "BlackGirlWatMeme" class = "templateMeme" src ="Black-Girl-Wat.jpg">
+            <img id= "BlackGirlWatMeme" class = "templateMeme" >
         </div>
         <div class ="im">
-            <img id= "BlueButtonMeme" class = "templateMeme" src ="BlueButton.JPG">
+            <img id= "BlueButtonMeme" class = "templateMeme" >
         </div>
         <div class ="im">
-            <img id= "NotMyBusinessMeme" class = "templateMeme" src ="But-Thats-None-Of-My-Business.jpg">
+            <img id= "NotMyBusinessMeme" class = "templateMeme">
         </div>
         <div class ="im">
-            <img id= "bubblesGirlMeme" class = "templateMeme" src ="Chubby-Bubbles-Girl.jpg">
+            <img id= "bubblesGirlMeme" class = "templateMeme" >
         </div>
         <div class ="im">
-            <img id= "conspiracyKeanuMeme" class = "templateMeme" src ="Conspiracy-Keanu.jpg">
+            <img id= "conspiracyKeanuMeme" class = "templateMeme" >
         </div>
         <div class ="im">
-            <img id= "creepyWonkaMeme" class = "templateMeme" src ="Creepy-Condescending-Wonka.jpg">
+            <img id= "creepyWonkaMeme" class = "templateMeme" >
         </div>
         <div class ="im">
-            <img id= "dogeMeme" class = "templateMeme" src ="Doge.jpg">
+            <img id= "dogeMeme" class = "templateMeme" >
         </div>
         <div class ="im">
-            <img id= "futuramaMeme" class = "templateMeme" src ="Futurama-Fry.jpg">
+            <img id= "futuramaMeme" class = "templateMeme" >
         </div>
         <div class ="im">
-            <img id= "grumpyCatMeme" class = "templateMeme" src ="Grumpy-Cat.jpg">
+            <img id= "grumpyCatMeme" class = "templateMeme" >
         </div>
         <div class ="im">
-            <img id= "pillsMeme" class = "templateMeme" src ="Hard-To-Swallow-Pills.jpg">
+            <img id= "pillsMeme" class = "templateMeme" >
         </div>
         <div class ="im">
-            <img id= "johnnyMeme" class = "templateMeme" src ="Heres-Johnny.jpg">
+            <img id= "johnnyMeme" class = "templateMeme" >
         </div>
         <div class ="im">
-            <img id= "haroldMeme" class = "templateMeme" src ="Hide-the-Pain-Harold.jpg">
+            <img id= "haroldMeme" class = "templateMeme" >
         </div>
         <div class ="im">
-            <img id= "asianDadMeme" class = "templateMeme" src ="High-Expectations-Asian-Father.jpg">
+            <img id= "asianDadMeme" class = "templateMeme" >
         </div>
         <div class ="im">
-            <img id= "liveDangerouslyMeme" class = "templateMeme" src ="I-Too-Like-To-Live-Dangerously.jpg">
+            <img id= "liveDangerouslyMeme" class = "templateMeme" >
         </div>
         <div class ="im">
-            <img id= "interestingManMeme" class = "templateMeme" src ="InterestingMan.jpg">
+            <img id= "interestingManMeme" class = "templateMeme" >
         </div>
         <div class ="im">
-            <img id= "pigeonMeme" class = "templateMeme" src ="Is-This-A-Pigeon.jpg">
+            <img id= "pigeonMeme" class = "templateMeme" >
         </div>
         <div class ="im">
-            <img id= "jackieChanMeme" class = "templateMeme" src ="Jackie-Chan-WTF.jpg">
+            <img id= "jackieChanMeme" class = "templateMeme" >
         </div>
         <div class ="im">
-            <img id= "leoDicaprioMeme" class = "templateMeme" src ="LeoDicaprioCheers.jpg">
+            <img id= "leoDicaprioMeme" class = "templateMeme" >
         </div>
         <div class ="im">
-            <img id= "offRampMeme" class = "templateMeme" src ="OffRamp.jpg">
+            <img id= "offRampMeme" class = "templateMeme" >
         </div>
         <div class ="im">
-            <img id= "notSimplyMeme" class = "templateMeme" src ="One-Does-Not-Simply.jpg">
+            <img id= "notSimplyMeme" class = "templateMeme" >
         </div>
         <div class ="im">
-            <img id= "oprahMeme" class = "templateMeme" src ="Oprah-You-Get-A.jpg">
+            <img id= "oprahMeme" class = "templateMeme" >
         </div>
         <div class ="im">
-            <img id= "philosoraptorMeme" class = "templateMeme" src ="Philosoraptor.jpg">
+            <img id= "philosoraptorMeme" class = "templateMeme" >
         </div>
         <div class ="im">
-            <img id= "successKidMeme" class = "templateMeme" src ="Success-Kid.jpg">
+            <img id= "successKidMeme" class = "templateMeme" >
         </div>
         <div class ="im">
-            <img id= "twoButtonsMeme" class = "templateMeme" src ="Two-Buttons.jpg">
+            <img id= "twoButtonsMeme" class = "templateMeme" >
         </div>
         <div class ="im">
-            <img id= "teacherMeme" class = "templateMeme" src ="Unhelpful-High-School-Teacher.jpg">
+            <img id= "teacherMeme" class = "templateMeme" >
         </div>
         <div class ="im">
-            <img id= "xAllYMeme" class = "templateMeme" src ="X-All-The-Y.jpg">
+            <img id= "xAllYMeme" class = "templateMeme" >
         </div>
 
     </div>
-
-<input id="theText" type="text">
-<button id="submit">Draw text on canvas</button><br>
-    Upload a meme template via URL: <input id='urlUp', type='text'> <button id='upBut', type='button', onclick='replaceUrl()'>Upload</button>
-    <button id='downloadMeme', type='button, onclick=downloadImage()'>Download Your Meme! </button>
-
+    <input id="theText" type="text">
+    <button id="submit">Draw text on canvas</button><br>
+    Upload a meme template via URL: <input id='urlUp' , type='text'> <button id='upBut' , type='button' , onclick='replaceUrl()'>Upload</button>
+    <button id='downloadMeme' , type='button, onclick=downloadImage()'>Download Your Meme! </button>
     <button id="saveMeme">Save Meme!</button>
     <div>
-
     <button id="shareBtnModal">Share!</button>
-
-      <!-- The Modal -->
-      <div id="shareModal" class="modal">
-
+    <!-- The Modal -->
+    <div id="shareModal" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
-          <span class="close">&times;</span>
-          
+            <span class="close">&times;</span>
             <input type="text" name="downloadLink" id="downloadLinkID" value="download link"><br><br>
-            
-            <button id="gmailShareBtn">share with google!</button>  
+            <button id="gmailShareBtn">share with google!</button>
         </div>
-
-      </div>
+    </div>
     </div>
     <hr>
-
-    <canvas id="canvas"/>
+    <canvas id="canvas" />
     <img id="test"/>
 
+<script>
+const fileInput = document.getElementById('upload');
+var selectedFile = fileInput.files[0];
 
 
-    <script>
-        // canvas related variables
-/*var canvas = document.getElementById("canvas");
-var ctx = canvas.getContext("2d");
+var link = document.createElement('a');
+link.id = 'link';
+link.addEventListener('click', function(ev) {
+    link.href = canvas.toDataURL('image/png');
+    //console.log(link.href);
+    link.download = document.getElementById('titleText').value;
+}, false);
+document.body.appendChild(link);
 
-// variables used to get mouse position on the canvas
-var $canvas = $("#canvas");
-var canvasOffset = $canvas.offset();
-var offsetX = canvasOffset.left;
-var offsetY = canvasOffset.top;
-var scrollX = $canvas.scrollLeft();
-var scrollY = $canvas.scrollTop();
+var but = document.getElementById('downloadMeme');
+document.getElementById('link').appendChild(but)
 
-// variables to save last mouse position
-// used to see how far the user dragged the mouse
-// and then move the text by that distance
-var startX;
-var startY;
+/*if(selectedFile != null){
+   console.log('selectedFileExists....');
+  var test = selectedFile.imageURL;
+  document.getElementById("test").src = test;
 
-// an array to hold text objects
-var texts = [];
-
-// this var will hold the index of the hit-selected text
-var selectedText = -1;
-
-// clear the canvas & redraw all texts
-function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (var i = 0; i < texts.length; i++) {
-        var text = texts[i];
-        ctx.fillText(text.text, text.x, text.y);
-    }
 }
+else{
+    console.log('selectedFile is null....');
+}*/
 
-// test if x,y is inside the bounding box of texts[textIndex]
-function textHittest(x, y, textIndex) {
-    var text = texts[textIndex];
-    return (x >= text.x && x <= text.x + text.width && y >= text.y - text.height && y <= text.y);
-}
 
-// handle mousedown events
-// iterate through texts[] and see if the user
-// mousedown'ed on one of them
-// If yes, set the selectedText to the index of that text
-function handleMouseDown(e) {
-    e.preventDefault();
-    startX = parseInt(e.clientX - offsetX);
-    startY = parseInt(e.clientY - offsetY);
-    // Put your mousedown stuff here
-    for (var i = 0; i < texts.length; i++) {
-        if (textHittest(startX, startY, i)) {
-            selectedText = i;
+
+fileInput.addEventListener('change', (e) => doSomethingWithFiles(e.target.files));
+
+/*fileInput.addEventListener('change', sendPic, false);*/
+
+var output = document.getElementById('test');
+
+function doSomethingWithFiles(fileList) {
+    file = null;
+
+    for (let i = 0; i < fileList.length; i++) {
+        if (fileList[i].type.match(/^image\//)) {
+            file = fileList[i];
+            break;
         }
     }
-}
 
-// done dragging
-function handleMouseUp(e) {
-    e.preventDefault();
-    selectedText = -1;
-}
+    if (file !== null) {
+        isFileNull = false;
+        output.src = URL.createObjectURL(file);
 
-// also done dragging
-function handleMouseOut(e) {
-    e.preventDefault();
-    selectedText = -1;
-}
+        document.getElementById("test").src = output.src;
 
-// handle mousemove events
-// calc how far the mouse has been dragged since
-// the last mousemove event and move the selected text
-// by that distance
-function handleMouseMove(e) {
-    if (selectedText < 0) {
-        return;
+
+
+
+        console.log("FILE URL IS: " + output.src);
+        /* var ref = firebase.storage().ref('/memeTemplates');
+         var childRef = ref.child(output.src);
+         childRef.put(file).then(function(snapshot){
+           console.log('uploaded a file!');
+         });*/
+
     }
-    e.preventDefault();
-    mouseX = parseInt(e.clientX - offsetX);
-    mouseY = parseInt(e.clientY - offsetY);
-
-    // Put your mousemove stuff here
-    var dx = mouseX - startX;
-    var dy = mouseY - startY;
-    startX = mouseX;
-    startY = mouseY;
-
-    var text = texts[selectedText];
-    text.x += dx;
-    text.y += dy;
-    draw();
 }
 
-// listen for mouse events
-$("#canvas").mousedown(function (e) {
-    handleMouseDown(e);
-});
-$("#canvas").mousemove(function (e) {
-    handleMouseMove(e);
-});
-$("#canvas").mouseup(function (e) {
-    handleMouseUp(e);
-});
-$("#canvas").mouseout(function (e) {
-    handleMouseOut(e);
-});
-
-$("#submit").click(function () {
-
-    // calc the y coordinate for this text on the canvas
-    var y = texts.length * 20 + 20;
-
-    // get the text from the input element
-    var text = {
-        text: $("#theText").val(),
-        x: 20,
-        y: y
-    };
-
-    // calc the size of this text for hit-testing purposes
-    ctx.font = "16px verdana";
-    text.width = ctx.measureText(text.text).width;
-    text.height = 16;
-
-    // put this new text in the texts array
-    texts.push(text);
-
-    // redraw everything
-    draw();
-
-});*/
-        const fileInput = document.getElementById('upload');
-        var selectedFile = fileInput.files[0];
-
-        
-        var link = document.createElement('a');
-        link.id = 'link';
-        link.addEventListener('click', function(ev) {
-        link.href = canvas.toDataURL('image/png');
-        //console.log(link.href);
-        link.download = document.getElementById('titleText').value;
-        }, false);
-        document.body.appendChild(link);
-
-        var but = document.getElementById('downloadMeme');
-        document.getElementById('link').appendChild(but)
-        
-        /*if(selectedFile != null){
-           console.log('selectedFileExists....');
-          var test = selectedFile.imageURL;
-          document.getElementById("test").src = test;
-
-        }
-        else{
-            console.log('selectedFile is null....');
-        }*/
 
 
 
-                        fileInput.addEventListener('change', (e) => doSomethingWithFiles(e.target.files));
+function alertSuccessfulFileUpload() {
+    alert("successfully uploaded image!");
+}
 
-                        /*fileInput.addEventListener('change', sendPic, false);*/
+function checkIfFileIsNull() {
+    if (file == null) {
+        isFileNull = true;
+        alert("No image selected: please select an image to upload!");
+    } else {
+        // uploadFile();
 
-                        var output = document.getElementById('test');
+    }
 
-                          function doSomethingWithFiles(fileList) {
-                            file = null;
-
-                            for (let i = 0; i < fileList.length; i++) {
-                              if (fileList[i].type.match(/^image\//)) {
-                                file = fileList[i];
-                                break;
-                              }
-                            }
-
-                            if (file !== null) {
-                              isFileNull=false;
-                              output.src = URL.createObjectURL(file);
-                             
-                                document.getElementById("test").src = output.src;
-                                
-                                
-                                
-
-                              console.log("FILE URL IS: "+ output.src);
-                             /* var ref = firebase.storage().ref('/memeTemplates');
-                              var childRef = ref.child(output.src);
-                              childRef.put(file).then(function(snapshot){
-                                console.log('uploaded a file!');
-                              });*/
-
-                            }
-                          }
-
-
-                        
-
-                        function alertSuccessfulFileUpload(){
-                            alert("successfully uploaded image!");
-                        }
-                        function checkIfFileIsNull(){
-                            if(file == null){
-                                isFileNull= true;
-                                alert("No image selected: please select an image to upload!");
-                            }
-                            else{
-                               // uploadFile();
-
-                            }
-                            
-                        }  
-
-    </script>
+}
+</script>
 
 
     

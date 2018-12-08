@@ -1,3 +1,6 @@
+/* this is just a HUGE storage for all of our memes. */
+
+/* storage references for our templates */
 var storage = firebase.storage();
 var storageRef = storage.ref();
 var testRef = storageRef.child('memeTemplates/SurprisedPikachu.JPG');
@@ -37,497 +40,681 @@ var safeRef = storageRef.child('memeTemplates/safe.jpg');
 var distractedBoyfriendRef = storageRef.child('memeTemplates/Distracted Boyfriend.JPG');
 
 
-/*var selectedFile = document.getElementById('upload').files[0];
-if(selectedFile != null){
-   
-  var test = selectedFile.imageURL;
-  document.getElementById("test").src = test;
-
-}
-*/
+// each reference points to its respective meme in our firebase cloud storage
 pikaRef.getDownloadURL().then(function(url) {
-    fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+    fetch(url) // gets url, returns response and blob
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-        var reader = new FileReader();
-        reader.readAsDataURL(memeImage);
-        reader.onloadend = function(){
-            base64data = reader.result;
-            console.log(base64data);
-            document.getElementById('test').setAttribute('base64data', base64data);
-        }
-        
+             
+        })
+        .then(function(memeImage) { // with the blob, we can convert it to base 64 and display img for preview
+            document.getElementById("test").src = URL.createObjectURL(memeImage);
+            var reader = new FileReader();
+            reader.readAsDataURL(memeImage);
+            reader.onloadend = function() {
+                base64data = reader.result;
+                //console.log(base64data);
+                document.getElementById('test').setAttribute('base64data', base64data);
+            }
 
-    })
-    .catch(function(error) {
-        // error handling
-    });    
+
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 });
 
-testRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+testRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById('pikaMeme').src = URL.createObjectURL(memeImage);
-      document.getElementById("pikaMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('pikaMeme').src = URL.createObjectURL(memeImage);
+
+            document.getElementById("pikaMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-safeRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+safeRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-        document.getElementById('safeMeme').src = URL.createObjectURL(memeImage);
-        document.getElementById("safeMeme").addEventListener('click', () => {
-            document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });  
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('safeMeme').src = URL.createObjectURL(memeImage);
+
+            document.getElementById("safeMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-distractedBoyfriendRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+distractedBoyfriendRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-        document.getElementById('distractedBoyMeme').src = URL.createObjectURL(memeImage);
-        document.getElementById("distractedBoyMeme").addEventListener('click', () => {
-            document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('distractedBoyMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("distractedBoyMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-fwpRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+fwpRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("FWPMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('FWPMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("FWPMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-aliensRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+aliensRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("AliensMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('AliensMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("AliensMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-batmanRobinRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+batmanRobinRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("BatmanRobinMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('BatmanRobinMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("BatmanRobinMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-blackGirlRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+blackGirlRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("BlackGirlWatMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('BlackGirlWatMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("BlackGirlWatMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-blueBtnRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+blueBtnRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("BlueButtonMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('BlueButtonMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("BlueButtonMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-notMyBusinessRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+notMyBusinessRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("NotMyBusinessMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('NotMyBusinessMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("NotMyBusinessMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-bubbleGirlRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+bubbleGirlRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("bubblesGirlMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('bubblesGirlMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("bubblesGirlMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-conspiracyRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+conspiracyRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("conspiracyKeanuMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('conspiracyKeanuMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("conspiracyKeanuMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-wonkaRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+wonkaRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("creepyWonkaMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('creepyWonkaMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("creepyWonkaMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-dogeRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+dogeRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('dogeMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("dogeMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-futuramaRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+futuramaRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('futuramaMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("futuramaMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-catRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+catRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('grumpyCatMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("grumpyCatMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-pillsRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+pillsRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('pillsMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("pillsMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-johnnyRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+johnnyRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('johnnyMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("johnnyMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-haroldRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+haroldRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('haroldMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("haroldMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-asianDadRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+asianDadRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('asianDadMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("asianDadMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-liveDangerouslyRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+liveDangerouslyRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('liveDangerouslyMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("liveDangerouslyMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-interestingManRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+interestingManRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('interestingManMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("interestingManMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-pigeonRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+pigeonRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('pigeonMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("pigeonMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-jackieChanRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+jackieChanRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('jackieChanMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("jackieChanMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-leoRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+leoRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('leoDicaprioMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("leoDicaprioMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
 /*spongebobRef.getDownloadURL().then(function(url){
@@ -537,7 +724,7 @@ leoRef.getDownloadURL().then(function(url){
             return response.blob();
         }
 
-        // error, handle it however you want to
+         
     })
     .then(function(memeImage) {
       document.getElementById("safeMeme").addEventListener('click', () => {
@@ -545,141 +732,197 @@ leoRef.getDownloadURL().then(function(url){
       });   
     })
     .catch(function(error) {
-        // error handling
+         console.log('Error has occured in memeStorage.js');
     });
 })*/
 
-offRampRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+offRampRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('offRampMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("offRampMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-simplyRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+simplyRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('notSimplyMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("notSimplyMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-oprahRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+oprahRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('oprahMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("oprahMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-philosoraptorRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+philosoraptorRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('philosoraptorMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("philosoraptorMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-successKidRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+successKidRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('successKidMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("successKidMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-twoBtnsRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+twoBtnsRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('twoButtonsMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("twoButtonsMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
-teacherRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+teacherRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('teacherMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("teacherMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
 
 /*skeletonRef.getDownloadURL().then(function(url){
@@ -689,7 +932,7 @@ teacherRef.getDownloadURL().then(function(url){
             return response.blob();
         }
 
-        // error, handle it however you want to
+         
     })
     .then(function(memeImage) {
       document.getElementById("safeMeme").addEventListener('click', () => {
@@ -697,25 +940,33 @@ teacherRef.getDownloadURL().then(function(url){
       });   
     })
     .catch(function(error) {
-        // error handling
+         console.log('Error has occured in memeStorage.js');
     });
 })*/
 
-xyRef.getDownloadURL().then(function(url){
-  fetch(url)
-    .then(function(response) {
-        if (response.ok) {
-            return response.blob();
-        }
+xyRef.getDownloadURL().then(function(url) {
+    fetch(url)
+        .then(function(response) {
+            if (response.ok) {
+                return response.blob();
+            }
 
-        // error, handle it however you want to
-    })
-    .then(function(memeImage) {
-      document.getElementById("safeMeme").addEventListener('click', () => {
-        document.getElementById("test").src = URL.createObjectURL(memeImage);
-      });   
-    })
-    .catch(function(error) {
-        // error handling
-    });
+             
+        })
+        .then(function(memeImage) {
+            document.getElementById('xAllYMeme').src = URL.createObjectURL(memeImage);
+            document.getElementById("xAllYMeme").addEventListener('click', () => {
+                var reader = new FileReader();
+                reader.readAsDataURL(memeImage);
+                reader.onloadend = function() {
+                    base64data = reader.result;
+                    //console.log(base64data);
+                    document.getElementById('test').setAttribute('base64data', base64data);
+                }
+                document.getElementById("test").src = URL.createObjectURL(memeImage);
+            });
+        })
+        .catch(function(error) {
+             console.log('Error has occured in memeStorage.js');
+        });
 })
