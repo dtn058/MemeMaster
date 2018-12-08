@@ -78,7 +78,7 @@ document.getElementById("loginBtn").addEventListener("click", function(){
     }
 });
 
-document.getElementById('logoutBtn').addEventListener("click", function(){
+/*document.getElementById('logoutBtn').addEventListener("click", function(){
   firebase.auth().signOut().then(function() {
       // Sign-out successful.
       window.alert('user logged out!');
@@ -89,7 +89,7 @@ document.getElementById('logoutBtn').addEventListener("click", function(){
       // An error happened.
       window.alert('Error: ' + error.message);
     });
-});
+});*/
 
 
 
@@ -97,9 +97,10 @@ firebase.auth().onAuthStateChanged(function(user){
   if(user)
   {
     window.alert('user logged in!');
-    document.getElementById('userName').innerHTML = ''+ user.email;
+    document.getElementById('userName').innerHTML = 'Welcome '+ user.email + ' !';
     console.log('user id for logged in user is......' + user.uid);
     uidOfUser = user.uid;
+    window.location.href = "https://cse134bprojmememaster.firebaseapp.com/mainScreen.html";
 
   }
   else{
