@@ -104,7 +104,28 @@
         }
     }
 
+    firebase.auth().onAuthStateChanged(function(user){
+    var memeLib = document.getElementById('memeLibrary');
+    firebase.database().ref("users/" + firebase.auth().currentUser.uid).on('value', function(snap){
 
+      snap.forEach(function(childNodes){
+
+      //This loop iterates over children of user_id
+      //childNodes.key is key of the children of userid such as (20170710)
+      console.log(childNodes.val().title);
+      var newImg = document.createElement('img');
+      newImg.setAttribute('src', childNodes.val().meme)
+      newImg.setAttribute('height', 100);
+      newImg.setAttribute('width',100);
+      memeLib.appendChild(newImg);
+      //childNodes.val().time;
+      //childNodes.val().rest_time;
+      //childNodes.val().interval_time;
+
+
+      });
+    });
+  })
 
 
     function alertSuccessfulFileUpload() {
