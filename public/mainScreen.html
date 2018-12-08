@@ -90,6 +90,8 @@
         <canvas id="canvas" />
         <img id="editMemeImage">
     </div>
+    <h2> Right click to save the image </h2>
+    </div>
     <button id="saveMeme">Save Meme!</button>
     <div id=' memeWrapper'> <!-- the user's library of memes! the gold mine-->
         <hr>
@@ -103,27 +105,25 @@
         </div>
         <hr>
     </div>
-    </div>
+    
     <script>
         refreshLibrary();
     document.getElementById('saveMeme').addEventListener('click', function(){
          var imgSrc = canvas.toDataURL('image/png');
-         var user = firebase.auth().currentUser.uid;
+         var user = firebase.auth().currentUser;
             var postData = {
-            author: user.email,
+            author: 'test',
             uid: user.uid,
-            meme: 'meme',
+            meme: imgSrc,
             memeTemplate: document.getElementById('editMemeImage').getAttribute('memeTemplate'),
             memeID: document.getElementById('editMemeImage').getAttribute('memeID'),
-            topTextDataVal: topTextData,
-            botTestDataVal: botTextData,
+            //topTextDataVal: topTextData,
+            //botTestDataVal: botTextData,
             title: document.getElementById('titleText').value
         };
 
-        var updates = {};
-        updates['users/' + user.uid + '/' + document.getElementById('editMemeImage').getAttribute('memeID')] = postData;
-
-        firebase.database().ref().child('users/' + user.uid + '/' + document.getElementById('editMemeImage').getAttribute('memeID')).update (postData);
+        firebase.database().ref().child('users/' + user.uid + '/' + document.getElementById('editMemeImage').getAttribute('memeID')).set(postData);
+        refreshLibrary();
         
 
 
@@ -203,7 +203,9 @@
                     //console.log(editMeme(newImg.getAttribute('memeTemplate')));
                     //newImg.setAttribute('onclick', childNodes.val().memeTemplate);
                     newImg.onclick = function() {
-                        editMeme(childNodes.val().memeTemplate);
+                        document.getElementById('editPortion').style.visibility = 'visible'
+                        editMeme(childNodes.val().memeTemplate,childNodes.val().memeTemplate, childNodes.val().memeID);
+
                     }
 
                     memeLib.appendChild(newImg);
@@ -214,9 +216,12 @@
         })
     }
 
-    function editMeme(memeTemplate) {
+    function editMeme(memeTemplate, memeTemp, memeIDTemp) {
         console.log('triggered');
         document.getElementById('editMemeImage').src = memeTemplate;
+        document.getElementById('editMemeImage').setAttribute('memeTemplate', memeTemp);
+        document.getElementById('editMemeImage').setAttribute('memeID', memeIDTemp);
+
     }
 
     function alertSuccessfulFileUpload() {
