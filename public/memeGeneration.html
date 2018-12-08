@@ -165,7 +165,12 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <input type="text" name="downloadLink" id="downloadLinkID" value="download link"><br><br>
-            <button id="gmailShareBtn">share with google!</button>
+                <script type="text/javascript">
+                    
+                </script>
+           
+                <button id="googleShare">googleShare</button>
+            
         </div>
     </div>
     </div>
@@ -180,8 +185,10 @@ var selectedFile = fileInput.files[0];
 // allows the download of the meme
 var link = document.createElement('a');
 link.id = 'link';
+var linkYo;
 link.addEventListener('click', function(ev) {
     link.href = canvas.toDataURL('image/png');
+    linkYo = link.href;
     //console.log(link.href);
     link.download = document.getElementById('titleText').value;
 }, false);
@@ -190,16 +197,12 @@ document.body.appendChild(link);
 var but = document.getElementById('downloadMeme');
 document.getElementById('link').appendChild(but)
 
-/*if(selectedFile != null){
-   console.log('selectedFileExists....');
-  var test = selectedFile.imageURL;
-  document.getElementById("test").src = test;
 
-}
-else{
-    console.log('selectedFile is null....');
-}*/
+/*document.getElementById('gmailShare').addEventListener('click',function(){
+    
+    //location.href = "https://plus.google.com/share?url="+link.href;
 
+})*/
 
 
 fileInput.addEventListener('change', (e) => doSomethingWithFiles(e.target.files));
@@ -223,16 +226,8 @@ function doSomethingWithFiles(fileList) {
         output.src = URL.createObjectURL(file);
 
         document.getElementById("test").src = output.src;
-
-
-
-
         console.log("FILE URL IS: " + output.src);
-        /* var ref = firebase.storage().ref('/memeTemplates');
-         var childRef = ref.child(output.src);
-         childRef.put(file).then(function(snapshot){
-           console.log('uploaded a file!');
-         });*/
+        
 
     }
 }

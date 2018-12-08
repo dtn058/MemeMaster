@@ -17,10 +17,15 @@ document.getElementById("signUpBtn").addEventListener("click", function(){
           console.log('current user uid is...' + firebase.auth().currentUser.uid);
           //var currEmail = firebase.auth().currentUser.getEmail();
 
-          firebase.database().ref().child("users/" + firebase.auth().currentUser.uid).set({
-            email: ''   
+          /*firebase.database().ref().child("users/" + firebase.auth().currentUser.uid).set({
+             
 
-          })
+          })*/
+          var newUserKey = firebase.database().ref().child('users').push().key;
+                var updates = {};
+                updates['users/' + firebase.auth().currentUser.uid] = newUserKey;
+
+                firebase.database().ref().update(updates);
 
           document.getElementById('userEmail').value = '';
           document.getElementById('userPassword').value = '';
@@ -103,23 +108,6 @@ firebase.auth().onAuthStateChanged(function(user){
   }
 
 });
-
-
- /*document.getElementById('viewbtn').addEventListener("click", function showImage(){
- var storage = firebase.storage();
- var storageRef = storage.ref();
-  storageRef.child('Distracted Boyfriend.JPG').getDownloadURL().then(function(url) {
-            console.log(url);
-
-             var test = url;
-             alert(url);
-             document.querySelector('img').src = test;
-
-         }).catch(function(error) {
-
-         });
- });*/
-
 
 
 
