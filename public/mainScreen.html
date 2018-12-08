@@ -36,8 +36,11 @@
     <!-- CODE STARTS HERE-->
     <h1> <b>MemeMaster</b> </h1>
     <button id="settingsBtn" , onclick="location.href = 'https://cse134bprojmememaster.firebaseapp.com/settings.html'"> Settings Page </button>
+    <!-- settings btn to redirect to settings-->
     <button id="createMeme" , onclick="location.href = 'https://cse134bprojmememaster.firebaseapp.com/memeGeneration.html'"> Create a New Meme! </button>
-    <div id='memeWrapper'>
+    <!-- redirect to meme creation -->
+
+    <div id='memeWrapper'> <!-- the user's library of memes! the gold mine-->
         <hr>
         <div id='memeLibrary'>
             Upload a meme! <input id="upload" type="file" accept="image/*">
@@ -104,6 +107,7 @@
         }
     }
 
+    // instantiate the user's library
     firebase.auth().onAuthStateChanged(function(user){
     var memeLib = document.getElementById('memeLibrary');
     firebase.database().ref("users/" + firebase.auth().currentUser.uid).on('value', function(snap){

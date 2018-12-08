@@ -1,6 +1,8 @@
 var storage = firebase.storage();
 var storageRef = storage.ref();
 var pikaRef = storageRef.child('memeTemplates/SurprisedPikachu.JPG');
+
+// get an arbitrary avatar pic, we chose pikachu cause it's cute
 pikaRef.getDownloadURL().then(function(url) {
     fetch(url)
     .then(function(response) {
@@ -18,6 +20,7 @@ pikaRef.getDownloadURL().then(function(url) {
     });    
 });
 
+// modal stuff for the change password functionality
 window.onload = function(){
 const modal = document.getElementById('pass-modal');
 const open = document.getElementById('open-modal');
@@ -26,10 +29,12 @@ const cancelledIt = document.getElementById('cancelled-it');
 const confirmedIt = document.getElementById('confirmed-it');
 const returnSpan = document.getElementById('return-value');
 
+// opens the modal on click
 open.addEventListener('click', () => {
     modal.showModal();
 });
 
+// close upon cancel button
 cancelledIt.addEventListener('click', () => {
     modal.close('cancelled');
 });
@@ -39,6 +44,7 @@ confirmedIt.addEventListener('click', () => {
     modal.close(document.getElementById('newPass').value);
 });
 
+// close modal when x'ing out
 close.addEventListener('click', () => {
     modal.close('cancelled');
 })

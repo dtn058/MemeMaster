@@ -28,7 +28,6 @@ window.onload = function(){
     initTop.value=topText;
     initBot.value=botText;
     // call the draw command
-    //drawPic();
     draw();
 
     // listen for keyup events on width & height input-text elements
@@ -53,13 +52,16 @@ window.onload = function(){
         changeBotSize(canvas);
     }, false);
 
+    // function that allows us to only change font size of the top
     function changeTopSize(canvas){
+        // clear the rectangle and draw again
         ctx.clearRect(0,0,canvas.width,canvas.height/2);
         ctx.drawImage(document.getElementById('test'), 0, 0);
-        changeBotSize(canvas);
+        changeBotSize(canvas); // call to make sure bot text stays there
         fontSize = canvas.width * topTextSizeInput.value;
         ctx.font = '' + fontSize + "px Impact";
         ctx.lineWidth = fontSize/15;
+        // allows us to use multi-line text for meme
         topText.split('\n').forEach(function (t,i){
             topcounter = i;
             topcounter = topcounter+1;
@@ -68,7 +70,7 @@ window.onload = function(){
         })
 
     }
-
+    // similar to changeTopSize, but we needed it for call to changebot bc recursion
     function changeTopSize2(canvas){
         ctx.clearRect(0,0,canvas.width,canvas.height/2);
         ctx.drawImage(document.getElementById('test'), 0, 0);
@@ -85,6 +87,7 @@ window.onload = function(){
 
     }
 
+    // change font size of bottom text
     function changeBotSize(canvas){
         ctx.clearRect(0,0,canvas.width,canvas.height/2);
         ctx.drawImage(document.getElementById('test'), 0, 0);
@@ -92,6 +95,7 @@ window.onload = function(){
         botfontSize = canvas.width * botTextSizeInput.value;
         ctx.font = '' + botfontSize + "px Impact";
         ctx.lineWidth = botfontSize/15;
+        // multi-line support
         botText.split('\n').reverse().forEach(function (t,i){
             botcounter = i;
             botcounter = botcounter+1;
@@ -105,7 +109,6 @@ window.onload = function(){
     
     function draw(){
         let topTextSize,botTextSize;
-        //changeTopSize(canvas);
         ctx.fillStyle = 'white';
         ctx.strokeStyle = 'black';
 
@@ -119,7 +122,7 @@ window.onload = function(){
         ctx.font = '' + botfontSize + "px Impact"
         ctx.lineWidth = botfontSize/15;
 
-
+        // initial draw of the canvas
         ctx.clearRect(0,0,canvas.width,canvas.height);
         ctx.drawImage(document.getElementById('test'), 0, 0);
         ctx.textAlign="center"; 
@@ -127,12 +130,14 @@ window.onload = function(){
         let topcounter = 1;
         let botcounter = 1;
 
+        // multi-line support
         topText.split('\n').forEach(function (t,i){
             topcounter = i;
             topcounter = topcounter+1;
             ctx.fillText(t,canvas.width/2, topcounter*fontSize, canvas.width);
             ctx.strokeText(t,canvas.width/2, topcounter*fontSize, canvas.width);
         })
+        // multi-line support
         botText.split('\n').reverse().forEach(function (t,i){
             botcounter = i;
             botcounter = botcounter+1;
@@ -174,7 +179,7 @@ window.onload = function(){
     }
 
 
-
+    // functionality to allow user to save a meme
     document.getElementById('saveMeme').addEventListener('click', function(){
         var user = firebase.auth().currentUser;
         var imgSrc = canvas.toDataURL('image/png');
@@ -183,6 +188,7 @@ window.onload = function(){
         var topTextData = document.getElementById('topText').value;
         var botTextData = document.getElementById('botText').value;
 
+        // meta data for the image, esp important because of the base64 data
         console.log('imgTemplate src is... ' + imgTemplate);
         var postData = {
             author: user.email,

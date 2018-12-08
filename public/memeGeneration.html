@@ -4,6 +4,7 @@
 <head>
     <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
     <script>
+        // initialize firebase
     var config = {
         apiKey: "AIzaSyAdhmE_VvXS83MvrZYtRmLLVvQDRJw4k2E",
         authDomain: "cse134bprojmememaster.firebaseapp.com",
@@ -17,7 +18,7 @@
     <script src="memeGenerationJS.js"></script>
     <script src="memeStorage.js"></script>
     <style>
-        body{ background-color: ivory; }
+    body{ background-color: ivory; }
     canvas{border:1px solid red;}
     #wrapTemplates{
     height: 100px;
@@ -42,11 +43,15 @@
 
     <!-- dont need? <img src="blob:http://localhost:5000/ed201892-3946-42ad-a1bf-2a9ab62ea403"> -->
 
+    <!-- begin grabbing info for the meme creation-->
     Title of meme: <input type="text" id="titleText"><br>
     Top text:<textarea id="topText"></textarea> <input id="topTextSizeInput" type='range' min ="0.05" max="0.25" value="0.05" step="0.01"><br>
     Bottom text:<textarea id="botText"></textarea> <input id="botTextSizeInput" type='range' min ="0.05" max="0.25" value="0.05" step="0.01"'><br> 
+    <!-- sliders to adjust font size -->
     Upload a file: <input id="upload" type="file" accept="image/*">
+    <!-- upload an image for a template -->
     <h2> Or select from one of our templates </h1>
+    <!-- previews of our template memes-->
     <div id="wrapTemplates">
         <div class ="im">
             <img id='pikaMeme' class = "templateMeme" >
@@ -147,10 +152,11 @@
 
     </div>
     <input id="theText" type="text">
-    <button id="submit">Draw text on canvas</button><br>
-    Upload a meme template via URL: <input id='urlUp' , type='text'> <button id='upBut' , type='button' , onclick='replaceUrl()'>Upload</button>
+    Upload a Meme Template via URL: <input id='urlUp' , type='text'> <button id='upBut' , type='button' , onclick='replaceUrl()'>Upload</button>
+    <!-- upload template via url -->
     <button id='downloadMeme' , type='button, onclick=downloadImage()'>Download Your Meme! </button>
     <button id="saveMeme">Save Meme!</button>
+    <!-- save the meme into realtime database-->
     <div>
     <button id="shareBtnModal">Share!</button>
     <!-- The Modal -->
@@ -171,7 +177,7 @@
 const fileInput = document.getElementById('upload');
 var selectedFile = fileInput.files[0];
 
-
+// allows the download of the meme
 var link = document.createElement('a');
 link.id = 'link';
 link.addEventListener('click', function(ev) {
