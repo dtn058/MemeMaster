@@ -192,17 +192,19 @@ window.onload = function(){
 
         // meta data for the image, esp important because of the base64 data
         console.log('imgTemplate src is... ' + imgTemplate);
+        var newPostKey = firebase.database().ref().child('users').push().key;
         var postData = {
             author: user.email,
             uid: user.uid,
             meme: imgSrc,
             memeTemplate: imgTemplate,
+            memeID: newPostKey,
             topTextDataVal: topTextData,
             botTestDataVal: botTextData,
             title: document.getElementById('titleText').value
         };
 
-        var newPostKey = firebase.database().ref().child('users').push().key;
+        console.log(newPostKey);
         var updates = {};
         updates['users/' + user.uid + '/' + newPostKey] = postData;
 

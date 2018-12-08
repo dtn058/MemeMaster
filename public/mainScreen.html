@@ -32,22 +32,25 @@
 
 <body>
     <!-- CODE STARTS HERE-->
-    <h1> <b>MemeMaster</b> </h1>
+    <h1 style='text-align: center;'> <b>MemeMaster</b> </h1>
     <button id="settingsBtn" , onclick="location.href = 'https://cse134bprojmememaster.firebaseapp.com/settings.html'"> Settings Page </button>
     <!-- settings btn to redirect to settings-->
-    <button id="createMeme" , onclick="location.href = 'https://cse134bprojmememaster.firebaseapp.com/memeGeneration.html'"> Create a New Meme! </button>
+    <button id="createMeme" , onclick="location.href ='https://cse134bprojmememaster.firebaseapp.com/memeGeneration.html'" style = 'display:block; margin:auto'> Create a New Meme! </button>
     <!-- redirect to meme creation -->
 
     <div id='memeWrapper'> <!-- the user's library of memes! the gold mine-->
         <hr>
         <div id='memeLibrary'>
-            Upload a meme! <input id="upload" type="file" accept="image/*">
-            Upload a meme via URL! <input type="text" name="memeURL" id="uploadUrlID">
-            <button type="submit" id="uploadUrlBtnID">upload!</button>
+            Upload a Meme! <input id="upload" type="file" accept="image/*">
+            Upload a Meme via URL! <input type="text" name="memeURL" id="uploadUrlID">
+            <button type="submit" id="uploadUrlBtnID">Upload!</button> 
+            <button id="refreshLibrary", onclick='refreshLibrary()'> Refresh Your Library </button> <br>
+            <div id="memeContent"></div>
         </div>
         <hr>
     </div>
     <script>
+        refreshLibrary();
     const fileInput = document.getElementById('upload');
     var selectedFile = fileInput.files[0];
 
@@ -60,7 +63,7 @@
 
     function doSomethingWithFiles(fileList) {
         file = null;
-
+        document.getElementById('memeContent').innerHTML = "";
         for (let i = 0; i < fileList.length; i++) {
             if (fileList[i].type.match(/^image\//)) {
                 file = fileList[i];
@@ -87,7 +90,7 @@
                 var newPostKey = firebase.database().ref().child('users').push().key;
                 var updates = {};
                 updates['users/' + currUser.uid + '/' + newPostKey] = postData;
-
+                document.getElementById('memeContent').innerHTML = "";
                 firebase.database().ref().update(updates);
                 alert('file successfully uploaded!');
                 //document.getElementById('test').setAttribute('base64data', base64data);
@@ -98,8 +101,10 @@
     }
 
     // instantiate the user's library
+    function refreshLibrary(){
+    document.getElementById('memeContent').innerHTML = "";
     firebase.auth().onAuthStateChanged(function(user){
-    var memeLib = document.getElementById('memeLibrary');
+    var memeLib = document.getElementById('memeContent');
     firebase.database().ref("users/" + firebase.auth().currentUser.uid).on('value', function(snap){
 
       snap.forEach(function(childNodes){
@@ -120,6 +125,7 @@
       });
     });
   })
+}
 
 
     function alertSuccessfulFileUpload() {
@@ -153,6 +159,7 @@
         var updates = {};
         updates['users/' + currURLUser.uid + '/' + newPostKey] = postData;
 
+        document.getElementById('memeContent').innerHTML = "";
         firebase.database().ref().update(updates);
         alert('file successfully uploaded!');
 
